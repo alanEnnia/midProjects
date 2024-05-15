@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="test">test??</button>
+    <button id="clearBtn">clear</button>
+    <button id="add">add</button>
+
+    <div id="contentArea">
+
+    </div>
+
+</body>
+</html>
+
+<script>
+
+
+$(function(){
+    
+    $('button#test').click(function(){
+        $('#contentArea').append("<h1></h1>");
+        $('h1').text("huh").css("color","red");
+    });
+
+    $('#clearBtn').click(function(){
+        $('#contentArea').empty();
+    });
+
+/*-------------------*/
+
+   
+    $('button#add').click(function(){
+            $("#contentArea").load('test.txt');    
+    });
+
+});
+
+</script>
