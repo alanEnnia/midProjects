@@ -16,6 +16,18 @@
 
     </div>
 
+    <br>
+    <div class="container">
+        <input type="text" name="" id="">
+        <ul>
+            <li>dod</li>
+            <li>kok</li>
+            <li>lol</li>
+            <li>joj</li>
+            <li>pop</li>
+        </ul>
+    </div>
+
 </body>
 </html>
 
@@ -33,13 +45,19 @@ $(function(){
         $('#contentArea').empty();
     });
 
-/*-------------------*/
-
-   
     $('button#add').click(function(){
             $("#contentArea").load('test.txt');    
     });
 
+    /*******/
+    
+    $('input').on("keyup", function(){
+
+        var inptVal = $('input').val().toLowerCase();
+        $('ul li').filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(inputVal)> -1);
+        });
+    });
 });
 
 </script>
