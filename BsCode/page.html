@@ -49,15 +49,27 @@ $(function(){
             $("#contentArea").load('test.txt');    
     });
 
-    /*******/
-    
     $('input').on("keyup", function(){
 
-        var inptVal = $('input').val().toLowerCase();
-        $('ul li').filter(function(){
-            $(this).toggle($(this).text().toLowerCase().indexOf(inputVal)> -1);
-        });
+    var inputVal = $(this).val().toLowerCase();
+    $('ul li').each(function(){
+        $(this).toggle($(this).text().toLowerCase().indexOf(inputVal) > -1);    
     });
+
+    let allHidden = $('ul li').filter(':visible').length === 0;
+
+    if (allHidden) {
+        if ($('ul').next('p').length === 0) { // Check if the <p> already exists
+            $('ul').after("<p>none</p>");
+        }
+    } else {
+        $('ul').next('p').remove(); // Remove the <p> if it exists
+    }
+
+    });
+
+
+
 });
 
 </script>
