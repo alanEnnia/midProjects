@@ -2,6 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .containerG{
@@ -11,7 +12,193 @@ body {
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 10px;
+    align-items:flex-start
 }
 
-.musicCercle{}
+
+.musicCercle #musicCercleImg {
+        height: auto;
+        width: 150px;
+}
+
+
+#musicSymbole1 , #musicSymbole2{
+    height: auto;
+    width: 160px;
+    transform: translateY(4px) rotate(103deg) translateX(-20px);
+    position: absolute;
+    margin-left: -92px;
+}
+
+#musicSymbole1 {
+    animation: hideMS  1s  infinite;
+
+}
+
+#musicSymbole2 {
+    animation: showMS 1s  infinite;
+}
+
+.musicCercle {
+    display: flex;
+    align-items: center;
+    margin-left: -50px;
+    margin-top: -20px;
+}
+
+
+#musicCercleImg {
+    animation: rotate 8s linear infinite;
+}
+
+
+@keyframes hideMS {
+    0%{
+       opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes showMS {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/**/
+
+
+.headerTxt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
+#motivationalTxt {
+    width: 400px;
+    background: black;
+    text-align: center;
+    margin-left: -81px;
+    color: white;
+    margin-top: 27px;
+    font-family: sans-serif;
+    font-size: 21px;
+    padding: 10px 80px;
+    border-radius: 25px;
+}
+
+#motivationalTxt p img {
+    height: auto;
+    width: 80px;
+}
+
+.headerTxt p {
+    
+        margin-left: -81px;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 0px;
+        font-family: sans-serif;
+    
+}
+
+
+/**/
+
+.stars {
+    margin-top: 30px;
+    margin-right: 50px;
+    width: 50px;
+    max-width: 50px;
+    min-width: 50px;
+}
+
+.stars  .star {
+    height: auto;
+    position: relative;
+    width: 87px;
+}
+
+
+.stars .star:nth-of-type(1){
+    position: absolute;
+    top: 119px;
+    right: 108px;
+    opacity: 1;
+    animatio2n: matchingEf .7s linear;
+}
+
+.stars .star:nth-of-type(2) {
+    position: absolute;
+    top: 30px;
+    right: 201px;
+    opacity: 1;
+
+    animatio2n: matchingEf .9s linear;
+
+}
+
+
+.stars .star:nth-of-type(3) {
+    position: absolute;
+    top: 19px;
+    opacity: 1;
+    right: 61px;
+    animatiosn: matchingEf .6s linear;
+
+}
+
+
+.stars .star {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 0;
+
+}
+
+@keyframes matchingEf {
+    0%{
+        transform: translateX(100px) rotate(360deg);
+        opacity: 0;
+
+    }
+    50%{
+        transform: translateX(0px) rotate(0deg);
+        opacity: 1;
+
+    }
+    100%{
+        opacity: 0;
+    }}
+
+
+/**/
