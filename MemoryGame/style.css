@@ -103,6 +103,7 @@ body {
     align-items: center;
     align-self: center;
     text-align: center;
+    margin-top: -60px;
 }
 
 
@@ -190,7 +191,7 @@ body {
     top: 119px;
     right: 108px;
     opacity: 1;
-    /*animation: matchingEf .7s linear;*/
+    animation: matchingEf .7s linear;
 }
 
 .stars .star:nth-of-type(2) {
@@ -199,7 +200,7 @@ body {
     right: 201px;
     opacity: 1;
 
-    /*animation: matchingEf .9s linear;*/
+    animation: matchingEf .9s linear;
 
 }
 
@@ -209,7 +210,7 @@ body {
     top: 19px;
     opacity: 1;
     right: 61px;
-    /*animation: matchingEf .6s linear;*/
+    animation: matchingEf .6s linear;
 
 }
 
@@ -237,3 +238,28 @@ body {
 
 
 /**/
+
+.game {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+.game .containerC {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 64px;
+}
+
+.game img {
+    width: 148px;
+    height: auto;
+    border-radius: 15px;
+    border: 1px solid;
+}
+
+
