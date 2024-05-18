@@ -263,3 +263,62 @@ body {
 }
 
 
+
+/*responsive*/
+
+@media screen and (min-width:764px) and (max-width:1080px) {
+    
+        .stars {
+            transform: scale(.7);
+        }
+
+        .game {
+            transform: scale(.8);
+        }
+
+}
+
+@media screen and (min-width:10px) and (max-width:763px) {
+    
+    .game {
+        margin-top: 50px;
+    }
+
+
+   .game .containerC {
+    gap: 11px;
+   }
+
+   .game img {
+    width: 81px;
+    border-radius: 10px;
+   }
+
+   .stars {
+    transform: scale(.8);   }
+
+   #motivationalTxt {
+    margin-left: 0px;
+    width: 110px;
+    margin-left: 0px;
+        width: 110px;
+        padding-left: 20px;
+        padding-right: 220px;
+   }
+
+   #motivationalTxt p{
+            font-size: 15px;
+            min-width: 222px;
+   }
+   .headerTxt #headerT{
+    margin-left: 0px;
+   }
+
+   #motivationalTxt img {
+    height: 22px;
+    margin-right: -20px;
+    width: 49px;
+    margin-bottom: -15px;
+}
+
+}
