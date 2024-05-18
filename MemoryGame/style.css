@@ -8,6 +8,7 @@ body {
 .containerG{
     height: 100vh;
     width: 100vw;
+    background-color: blanchedalmond;
 }
 
 .header {
@@ -100,8 +101,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    align-self: center;
+    text-align: center;
 }
+
+
+
 
 
 #motivationalTxt {
@@ -110,26 +115,56 @@ body {
     text-align: center;
     margin-left: -81px;
     color: white;
-    margin-top: 27px;
+    margin-top: 87px;
     font-family: sans-serif;
-    font-size: 21px;
-    padding: 10px 80px;
+    padding: 15px 80px;
     border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: center;
 }
 
-#motivationalTxt p img {
-    height: auto;
-    width: 80px;
+#motivationalTxt img {
+    height: 40px;
+    margin-right: -20px;
+    width: 70px;
+    margin-bottom: -15px;
+
 }
 
-.headerTxt p {
-    
-        margin-left: -81px;
-        font-size: 30px;
+#motivationalTxt p {
+        margin: 0px !important;
+        font-size: 21px;
+        max-width: 300px;
         font-weight: 700;
         margin-top: 0px;
         font-family: sans-serif;
-    
+        min-width: 300px;
+        width: 300px;
+        animation: showP .3s linear;
+}
+
+.headerTxt #headerT {
+    margin-left: -81px;
+    font-weight: 900;
+    font-family: sans-serif;
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+@keyframes showP {
+
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+
 }
 
 
@@ -155,7 +190,7 @@ body {
     top: 119px;
     right: 108px;
     opacity: 1;
-    animatio2n: matchingEf .7s linear;
+    /*animation: matchingEf .7s linear;*/
 }
 
 .stars .star:nth-of-type(2) {
@@ -164,7 +199,7 @@ body {
     right: 201px;
     opacity: 1;
 
-    animatio2n: matchingEf .9s linear;
+    /*animation: matchingEf .9s linear;*/
 
 }
 
@@ -174,7 +209,7 @@ body {
     top: 19px;
     opacity: 1;
     right: 61px;
-    animatiosn: matchingEf .6s linear;
+    /*animation: matchingEf .6s linear;*/
 
 }
 
