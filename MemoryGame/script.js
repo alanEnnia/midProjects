@@ -56,7 +56,6 @@ function displayHandler() {
                         location.reload();
                 }, 1000);
             }
-            
         } else {
             setTimeout(() => {
                 openedCards.forEach(({ Ucard, card }) => {
