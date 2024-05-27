@@ -190,17 +190,17 @@ body {
     position: absolute;
     top: 119px;
     right: 108px;
-    opacity: 1;
-    animation: matchingEf .7s linear;
+    opacity: 0;
+    animation-duration:  .7s ;
 }
 
 .stars .star:nth-of-type(2) {
     position: absolute;
     top: 30px;
     right: 201px;
-    opacity: 1;
+    opacity: 0;
 
-    animation: matchingEf .9s linear;
+    animation-duration:  .9s ;
 
 }
 
@@ -208,9 +208,9 @@ body {
 .stars .star:nth-of-type(3) {
     position: absolute;
     top: 19px;
-    opacity: 1;
+    opacity: 0;
     right: 61px;
-    animation: matchingEf .6s linear;
+    animation-duration:  .6s ;
 
 }
 

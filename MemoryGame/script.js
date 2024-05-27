@@ -31,8 +31,7 @@ shuffleArray(indexs);
 
 
 
-var cards = document.querySelectorAll(".card .imgCard");
-let i = 0;
+const cards = document.querySelectorAll(".card .imgCard");
 cards.forEach((card,i) => {
     card.src = "./imgs/cards/" + numbers[indexs[i]];
     
@@ -55,17 +54,7 @@ unknownCards.forEach(Ucard => {
     });
 });
 
-cards.forEach(card => {
-    card.addEventListener("click", function() {
-        if (openedCards.length < 2 && card.style.display == "block") {
-            const Ucard = document.querySelector(`img[alt="${card.alt}"].unkownC`);
-            card.style.display = "none";
-            Ucard.style.display = "block";
-            openedCards.push({ Ucard, card });
-            displayHandler();
-        }
-    });
-});
+
 
 function displayHandler() {
     if (openedCards.length === 2) {
@@ -76,7 +65,6 @@ function displayHandler() {
             Weffects();
         } else {
             setTimeout(() => {
-                Leffects();
                 openedCards.forEach(({ Ucard, card }) => {
                     Ucard.style.display = "block";
                     card.style.display = "none";
@@ -86,3 +74,19 @@ function displayHandler() {
         }
     }
 }
+
+function Weffects(){
+        const stars = document.querySelectorAll(".stars .star");
+
+        stars.forEach(star => {
+            star.style.animationName = "matchingEf";
+            setTimeout(() => {
+                star.style.animationName = "";
+            }, 1000);
+        })
+
+       
+
+}
+
+
