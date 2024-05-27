@@ -38,6 +38,9 @@ unknownCards.forEach(Ucard => {
 });
 
 
+let Wrounds = 0;
+
+
 
 function displayHandler() {
     if (openedCards.length === 2) {
@@ -46,6 +49,14 @@ function displayHandler() {
         if (src1 === src2) {
             openedCards = [];
             Weffects();
+            Wrounds++;
+            if (Wrounds == 4) {
+                document.querySelector("#motivationalTxt p").textContent = "YOU WIN!!!";
+                setTimeout(() => {
+                        location.reload();
+                }, 1000);
+            }
+            
         } else {
             setTimeout(() => {
                 openedCards.forEach(({ Ucard, card }) => {
@@ -67,9 +78,8 @@ function Weffects(){
                 star.style.animationName = "";
             }, 1000);
         })
-
-       
-
 }
+
+
 
 
