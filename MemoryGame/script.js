@@ -1,3 +1,6 @@
+
+/** create and shuffle the cards */
+
 const numbers = ["2black.png", "3black.png", "kblack.png", "qblack.png"];
 let indexs = [];
 let indexsR = {};
@@ -26,14 +29,18 @@ function shuffleArray(array) {
 
 shuffleArray(indexs);
 
+
+
 var cards = document.querySelectorAll(".card .imgCard");
 let i = 0;
-cards.forEach(card => {
+cards.forEach((card,i) => {
     card.src = "./imgs/cards/" + numbers[indexs[i]];
-    i++;
+    
 });
 
-let openedCards = []; // Keep track of opened cards
+/**adjusting the rules */
+
+let openedCards = []; 
 
 const unknownCards = document.querySelectorAll(".card .unkownC");
 unknownCards.forEach(Ucard => {
@@ -50,7 +57,7 @@ unknownCards.forEach(Ucard => {
 
 cards.forEach(card => {
     card.addEventListener("click", function() {
-        if (openedCards.length < 2 && card.style.display !== "block") {
+        if (openedCards.length < 2 && card.style.display == "block") {
             const Ucard = document.querySelector(`img[alt="${card.alt}"].unkownC`);
             card.style.display = "none";
             Ucard.style.display = "block";
@@ -65,17 +72,17 @@ function displayHandler() {
         const src1 = openedCards[0].card.src;
         const src2 = openedCards[1].card.src;
         if (src1 === src2) {
-            // Cards match, keep them displayed
             openedCards = [];
+            Weffects();
         } else {
-            // Cards don't match, hide them after a delay
             setTimeout(() => {
+                Leffects();
                 openedCards.forEach(({ Ucard, card }) => {
                     Ucard.style.display = "block";
                     card.style.display = "none";
                 });
                 openedCards = [];
-            }, 1000); // Adjust delay as needed
+            }, 1000); 
         }
     }
 }
