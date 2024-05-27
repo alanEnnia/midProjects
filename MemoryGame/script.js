@@ -1,22 +1,8 @@
-
-/** create and shuffle the cards */
-
 const numbers = ["2black.png", "3black.png", "kblack.png", "qblack.png"];
 let indexs = [];
-let indexsR = {};
+
 for (let i = 0; i < numbers.length * 2; i++) {
-    let index = Math.floor(Math.random() * 4);
-    if (!indexs.includes(index)) {
-        indexs.push(index);
-        indexsR[index] = 1;
-    }
-    if (indexs.includes(index) && indexsR[index] == 1) {
-        indexs.push(index);
-        indexsR[index] += 1;
-    }
-    if (indexs.includes(index) && indexsR[index] == 2) {
-        continue;
-    }
+    indexs.push(i % numbers.length);
 }
 
 function shuffleArray(array) {
@@ -29,12 +15,9 @@ function shuffleArray(array) {
 
 shuffleArray(indexs);
 
-
-
 const cards = document.querySelectorAll(".card .imgCard");
-cards.forEach((card,i) => {
+cards.forEach((card, i) => {
     card.src = "./imgs/cards/" + numbers[indexs[i]];
-    
 });
 
 /**adjusting the rules */
