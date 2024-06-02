@@ -78,16 +78,15 @@ div#backBtn p {
 
   }
 
-  video::-webkit-media-controls {
-    display:none !important;
-  }
-
-  video {
+  #particleCore img {
     width: 317px;
     margin-top: -150px;
     border: none;
     margin-bottom: 13px;
-}
+    
+  }
+ 
+
 
 #survey {
     width: 80%;

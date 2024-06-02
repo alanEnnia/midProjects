@@ -1,5 +1,4 @@
-    var video = document.querySelector('video');
-    video.controls = false;
+
 
     const survey = document.querySelector("#survey");
 
