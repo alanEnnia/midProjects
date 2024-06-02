@@ -43,16 +43,86 @@
                                                                      let btns = document.querySelectorAll(".btns button");
                                                                      btns.forEach (btn =>{
                                                                              btn.addEventListener('click',()=>{
+                                                                                        survey.style.opacity = 0;
                                                                                          if (btn.id == "ID"|| btn.id == "DD" || btn.id == "BM"){
                                                                                              let specialist = btn.id;
-                                                                                             localStorage.setItem('specialist',specialist);
                                                                                              //interest part
                                                                                              fetch('index03.html')
                                                                                              .then(response => response.text())
                                                                                              .then(data =>{
-                                                                                                    survey.innerHTML = data;
+                                                                                                    setTimeout(()=>{
+                                                                                                        survey.innerHTML = data;
+                                                                                                        const specialistC = document.querySelector('#sp');
+                                                                                                        const userC = document.querySelector('#name');
+                                                                                                        const btns = document.querySelectorAll('.btns input');
+                                                                                                        const btn = document.querySelector("#btn");
+                                                                                                        const btn1 = document.querySelector("#btn1");
+                                                                                                        const btn2 = document.querySelector("#btn2");
+                                                                                                        
+                                                                                                        specialistC.textContent = specialist;
+                                                                                                        userC.textContent = username;
+                                                                                                        if (specialist == 'ID'){
+                                                                                                            btn.value = 'Healthcare';
+                                                                                                            btn1.value = 'Telecommunications';
+                                                                                                            btn2.value = 'Data Centers';
+                                                                                                        }
+                                                                                                        if (specialist == 'DD'){
+                                                                                                            btn.value = 'EdTech';
+                                                                                                            btn1.value = 'Telecommunications';
+                                                                                                            btn2.value = 'E-commerce';
+                                                                                                        }
+                                                                                                        if (specialist == 'BM'){
+                                                                                                            btn.value = 'Manufacturing';
+                                                                                                            btn1.value = 'Renewable Energy';
+                                                                                                            btn2.value = 'Automotive Industry';
+                                                                                                        }
+                                                                                                        survey.style.opacity = 1;
+                                                                                                        btns.forEach(btn =>{
+                                                                                                                btn.addEventListener("click",()=>{
+                                                                                                                    var interest  = btn.value;
+                                                                                                                    survey.innerHTML = "Okey,i received your informations!<br>  give me a second to see what companies matches with your states..... ";
+                                                                                                                    const homeS = document.querySelector('#homeSection');
+                                                                                                                    const particle = document.querySelector('#particleCore');
+                                                                                                                    survey.style.animation = 'waitingPt1 1s linear';
+                                                                                                                    particle.style.animation = 'waitingPt2 1s linear';
+                                                                                                                    setTimeout(()=>{
+                                                                                                                        survey.classList.add('waitingPt1');
+                                                                                                                        particle.classList.add('waitingPt2');
+
+                                                                                                                        
+                                                                                                                        setTimeout(() => {
+
+                                                                                                                                survey.style.opacity = 0;
+                                                                                                                                setTimeout(()=>{
+                                                                                                                                    fetch('index04.html')
+                                                                                                                                    .then(response => response.text())
+                                                                                                                                    .then(data =>{
+                                                                                                                                        survey.innerHTML = data;
+                                                                                                                                        const expoBtn  = document.createElement('');
+                                                                                                                                        survey.style.opacity = 1;
+                                                                                                                                    })
+                                                                                                                                },900);
+
+                                                                                                                        }, 2000);
+
+                                                                                                                    },900);
+
+                                                                                                                    
+                                
+                                                                                                                });
+                                                                                                                
+                                                                                                                
+                                                                                                        });
+
+                                                                                                        
+
+
+
+
+                                                                                                        
+
+                                                                                                    },1200)
                                                                                              });
-                                                                                            
                                                                                          }
                                                                              });
                                                                      });
