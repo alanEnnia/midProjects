@@ -83,29 +83,30 @@
                                                                                                                     survey.innerHTML = "Okey,i received your informations!<br>  give me a second to see what companies matches with your states..... ";
                                                                                                                     const homeS = document.querySelector('#homeSection');
                                                                                                                     const particle = document.querySelector('#particleCore');
-                                                                                                                    survey.style.animation = 'waitingPt1 1s linear';
-                                                                                                                    particle.style.animation = 'waitingPt2 1s linear';
+                                                                                                                    survey.style.animation = 'waitingPt1 .5s linear';
+                                                                                                                    particle.style.animation = 'waitingPt2 .5s linear';
                                                                                                                     setTimeout(()=>{
                                                                                                                         survey.classList.add('waitingPt1');
                                                                                                                         particle.classList.add('waitingPt2');
 
                                                                                                                         
                                                                                                                         setTimeout(() => {
-
                                                                                                                                 survey.style.opacity = 0;
                                                                                                                                 setTimeout(()=>{
+                                                                                                                                    //table
                                                                                                                                     fetch('index04.html')
                                                                                                                                     .then(response => response.text())
                                                                                                                                     .then(data =>{
                                                                                                                                         survey.innerHTML = data;
-                                                                                                                                        const expoBtn  = document.createElement('');
+                                                                                                                                        particle.innerHTML += '<button type="submit" id="expoBtn">export data</button>';
+                                                                                                                                        particle.innerHTML += '<button type="submit" id="resuBtn">build resume</button>';
                                                                                                                                         survey.style.opacity = 1;
                                                                                                                                     })
-                                                                                                                                },900);
+                                                                                                                                },1500);
 
                                                                                                                         }, 2000);
 
-                                                                                                                    },900);
+                                                                                                                    },500);
 
                                                                                                                     
                                 
