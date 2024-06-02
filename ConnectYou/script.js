@@ -7,8 +7,9 @@
             survey.style.opacity = 0;
     },1200);
     setTimeout(()=>{
+            //name part 00
             survey.style.opacity = 1;
-            fetch('index02.html')
+            fetch('index00.html')
             .then(response => response.text())
             .then(data => {
                 survey.innerHTML = data;
@@ -17,7 +18,8 @@
                             e.preventDefault();
                             let username = document.querySelector('#username').value;
                             console.log(username);
-                            fetch('index03.html')
+                            //status part
+                            fetch('index01.html')
                             .then(response => response.text())
                             .then(data => {
                                 survey.style.opacity = 0;
@@ -25,6 +27,54 @@
                                     survey.innerHTML = data; 
                                     document.querySelector('span#name').textContent = username;
                                     survey.style.opacity = 1;
+                                    let btns  = document.querySelectorAll('.btns button ');
+                                    btns.forEach( btn =>{
+                                            btn.addEventListener('click',() =>{
+                                                    if (btn.id == "job" || btn.id == "internship") {
+                                                        let status  =btn.id;
+                                                        console.log(status); 
+                                                        //specialist part
+                                                        fetch('index02.html')
+                                                        .then(response => response.text())
+                                                        .then(data =>{
+                                                             survey.style.opacity = 0;
+                                                             setTimeout(()=>{
+                                                                     survey.innerHTML = data;
+                                                                     survey.style.opacity = 1;
+                                                                     let btns = document.querySelectorAll(".btns button");
+                                                                     btns.forEach (btn =>{
+                                                                             btn.addEventListener('click',()=>{
+                                                                                         if (btn.id == "ID"|| btn.id == "DD" || btn.id == "BM"){
+                                                                                             let specialist = btn.id;
+                                                                                             localStorage.setItem('specialist',specialist);
+                                                                                             //interest part
+                                                                                             fetch('index03.html')
+                                                                                             .then(response => response.text())
+                                                                                             .then(data =>{
+                                                                                                    survey.innerHTML = data;
+                                                                                             });
+                                                                                            
+                                                                                         }
+                                                                             });
+                                                                     });
+                                                             },1200);
+                                                        });
+                                                    }
+                                            });
+                                    });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                     },700);
                             })
@@ -73,4 +123,8 @@
             lightD.style.transform = "translateY(0px)";
         }
     });
+
+
+
+/*functions*/
 
