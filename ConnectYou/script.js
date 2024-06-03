@@ -1,7 +1,4 @@
-
-
     const survey = document.querySelector("#survey");
-
     setTimeout(()=>{
             survey.style.opacity = 0;
     },1200);
@@ -89,8 +86,6 @@
                                                                                                                     setTimeout(()=>{
                                                                                                                         survey.classList.add('waitingPt1');
                                                                                                                         particle.classList.add('waitingPt2');
-
-                                                                                                                        
                                                                                                                         setTimeout(() => {
                                                                                                                                 survey.style.opacity = 0;
                                                                                                                                 setTimeout(()=>{
@@ -110,21 +105,8 @@
                                                                                                                         }, 2000);
 
                                                                                                                     },450);
-
-                                                                                                                    
-                                
                                                                                                                 });
-                                                                                                                
-                                                                                                                
                                                                                                         });
-
-                                                                                                        
-
-
-
-
-                                                                                                        
-
                                                                                                     },1200)
                                                                                              });
                                                                                          }
@@ -135,20 +117,6 @@
                                                     }
                                             });
                                     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     },700);
                             })
                     });}     
@@ -158,46 +126,38 @@
 
 
 
-   
-    
 
-  
-
-
-    
 
     // Animation sec 03
-    const lBtn = document.querySelector("#lBtn");
-    var actualLanguage = "EN";
-
-    const lightD = document.querySelector("#lightD");
+    const langSBtn = document.querySelector("#lBtn");
+    const lightSBtn = document.querySelector("#lightD");
     var actualMode = "light";
 
-    lBtn.addEventListener("click", function() {
+    var actualLanguage = "EN";
+    langSBtn.addEventListener("click", function() {
         if (actualLanguage == "EN") { 
             actualLanguage = "FR";
-            lBtn.style.animation = "LBtnActivate 550ms linear";
-            lBtn.style.transform = "translateY(67px)";
+            langSBtn.style.animation = "LBtnActivate 550ms linear";
+            langSBtn.style.transform = "translateY(67px)";
         } else {
             actualLanguage = "EN";
-            lBtn.style.animation = "LBtnDeactivate 550ms linear";
-            lBtn.style.transform = "translateY(0px)";
+            langSBtn.style.animation = "LBtnDeactivate 550ms linear";
+            langSBtn.style.transform = "translateY(0px)";
         }
     });
 
-    lightD.addEventListener("click", function() {
+    lightSBtn.addEventListener("click", function() {
         if (actualMode == "light") {
             actualMode = "dark";
-            lightD.style.animation = "LBtnActivate 550ms linear";
-            lightD.style.transform = "translateY(67px)";
+            lightSBtn.style.animation = "LBtnActivate 550ms linear";
+            lightSBtn.style.transform = "translateY(67px)";
         } else {
             actualMode = "light";
-            lightD.style.animation = "LBtnDeactivate 550ms linear";
-            lightD.style.transform = "translateY(0px)";
+            lightSBtn.style.animation = "LBtnDeactivate 550ms linear";
+            lightSBtn.style.transform = "translateY(0px)";
         }
     });
 
 
 
-/*functions*/
-
+/*lang logic */
