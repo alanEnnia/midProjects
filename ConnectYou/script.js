@@ -83,6 +83,7 @@
                                                                                                                     survey.innerHTML = "Okey,i received your informations!<br>  give me a second to see what companies matches with your states..... ";
                                                                                                                     const homeS = document.querySelector('#homeSection');
                                                                                                                     const particle = document.querySelector('#particleCore');
+                                                                                                                    const btnsC = document.querySelector('div#btnContainer');
                                                                                                                     survey.style.animation = 'waitingPt1 .5s linear';
                                                                                                                     particle.style.animation = 'waitingPt2 .5s linear';
                                                                                                                     setTimeout(()=>{
@@ -98,8 +99,10 @@
                                                                                                                                     .then(response => response.text())
                                                                                                                                     .then(data =>{
                                                                                                                                         survey.innerHTML = data;
-                                                                                                                                        particle.innerHTML += '<button type="submit" id="expoBtn">export data</button>';
-                                                                                                                                        particle.innerHTML += '<button type="submit" id="resuBtn">build resume</button>';
+                                                                                                                                        particle.style.animation = "toTheTop .5s linear";
+                                                                                                                                        btnsC.style.animation = "fromTheTop .5s linear";
+                                                                                                                                        particle.style.marginBottom =0;
+                                                                                                                                        btnsC.style.opacity = 1;
                                                                                                                                         survey.style.opacity = 1;
                                                                                                                                     })
                                                                                                                                 },1500);
