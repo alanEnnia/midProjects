@@ -45,6 +45,33 @@
       
       
 </style>
+
+<script>
+                  const part4p0 = document.querySelector('#survey #pContainer');
+                  const part4Btn0 =  document.querySelector('#survey #ID');
+                  const part4Btn1 = document.querySelector('#survey #DD');
+                  const part4Btn2 = document.querySelector('#survey #BM');
+                langSBtn.addEventListener("click", function() {
+
+                if(actuallanguage == 'FR') {
+
+                  part4p0.innerHTML = 'Cool! maintenant, faites-le-moi savoir.... <br>Quelle est ta spécialité?';
+                  part4Btn0.innerHTML = 'Infrastructure Digital';
+                  part4Btn1.innerHTML = 'Développement Digital';
+                  part4Btn2.innerHTML = "Gestion d'entreprise";
+
+                } else {
+
+                  part4p0.innerHTML = 'Cool! now Let Me Know.... <br>What is Your  speciality?';
+                  part4Btn0.innerHTML = 'Infrastructure Digital';
+                  part4Btn1.innerHTML = 'Development Digital';
+                  part4Btn2.innerHTML = "Business Management";
+                  
+                }
+                });
+
+                
+</script>
 </head>
 <body>
     <div class="container">

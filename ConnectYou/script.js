@@ -1,30 +1,37 @@
     const survey = document.querySelector("#survey");
-    
+    const part1  = document.querySelector('#survey #firstText');
     // lang light btns  Animation sec 03 
-    const langSBtn = document.querySelector("#lBtn");
     const lightSBtn = document.querySelector("#lightD");
     var actualMode = "light";
 
-    var actualLanguage = "EN";
-
+    let actualLanguage = "EN";
+    const langSBtn = document.querySelector("#lBtn");
     langSBtn.addEventListener("click", function() {
-
-
         if ( actualLanguage == 'FR' ){
-          
             actualLanguage = "EN";
             langSBtn.style.animation = "LBtnDeactivate 550ms linear";
             langSBtn.style.transform = "translateY(0px)";
+            langSBtn.textContent = "EN";
 
-        } 
+        } else
         if (actualLanguage == 'EN') {
-
-                 
             actualLanguage = "FR";
             langSBtn.style.animation = "LBtnActivate 550ms linear";
-            langSBtn.style.transform = "translateY(67px)";          
+            langSBtn.style.transform = "translateY(67px)";     
+            langSBtn.textContent = "FR";     
         }
+        
+       
+            if ( actualLanguage == 'FR' ){
+                
+                part1.innerHTML = "Salut! <br> laissez-moi vous aider à trouver votre prochain emploi :)";
+            }else{
+
+                part1.innerHTML = "Hi! <br> let me help you find your next job :)";
+            }
+        
     });
+
 
 
     lightSBtn.addEventListener("click", function() {
@@ -41,65 +48,6 @@
 
 /*lang logic */
   
-langSBtn.addEventListener("click", function() {
-    const part1  = document.querySelector('#survey #firstText');
-    const part2p0 = document.querySelector('#survey #part2p0');
-    const part2p1 = document.querySelector('#survey #part2p1');
-    const part2Btn0 = document.querySelector('#survey #part2Btn');
-    const part3p0 = document.querySelector('#survey #pContainer');
-    const part3Btn0 = document.querySelector('#survey #internship');
-    const part3Btn1 = document.querySelector('#survey #job');
-    const part4p0 = document.querySelector('#survey #pContainer');
-    const part4Btn0 =  document.querySelector('#survey #ID');
-    const part4Btn1 = document.querySelector('#survey #DD');
-    const part4Btn2 = document.querySelector('#survey #BM');
-    const part5p0 = document.querySelector('#survey #pContainer');    
-    const part6H0 = document.querySelector('#survey #Header');
-    const part6Name = document.querySelector('#survey #name');
-    const part6Type = document.querySelector('#survey #type');
-    
-    if ( actualLanguage == 'FR' ){
-        
-        part1.innerHTML = "Salut! <br> laissez-moi vous aider à trouver votre prochain emploi :)";
-        part2p0.innerHTML = "Dites-moi d'abord....";
-        part2p1.innerHTML = "Quel est ton nom :";
-        part2Btn0.innerHTML = "suivant";
-        part3p0.innerHTML = 'Bien <span id="name" style="font-weight: 600;"></span> Travaillons-y ! <br> Êtes-vous à la recherche d\'un véritable emploi ou simplement d\'un stage ? ';
-        part3Btn0.innerHTML = 'Stage';
-        part3Btn1.innerHTML = 'Emploi';
-        part4p0.innerHTML = 'Cool! maintenant, faites-le-moi savoir.... <br>Quelle est ta spécialité?';
-        part4Btn0.innerHTML = 'Infrastructure Digital';
-        part4Btn1.innerHTML = 'Développement Digital';
-        part4Btn2.innerHTML = "Gestion d'entreprise";
-        part5p0.innerHTML = "<span id='sp'></span>!!WOW Nice Spécialiste <span id='name'></span> <br>Maintenant, pour vous donner le meilleur résultat, j'ai besoin que vous me disiez ce qui vous intéresse le plus....  ";
-        part6H0.innerHTML = "Voici votre liste :)";
-        part6Name.innerHTML = "nom";
-        part6Type.innerHTML = "genre";
-     
-
-    } 
-    if (actualLanguage == 'EN') {
-
-        part1.innerHTML = "Hi! <br> let me help you find your next job :)";
-        part2p0.innerHTML = 'Tell me first..';
-        part2p1.innerHTML = "What is your name :";
-        part2Btn0.innerHTML = "next";
-        part3p0.innerHTML = "Okay <span id='name' style='font-weight: 600;'></span> Let's work on it! <br> Are you looking for a real job or just an internship? ";
-        part3Btn0.innerHTML = 'Internship';
-        part3Btn1.innerHTML = 'Job';
-        part4p0.innerHTML = 'Cool! now Let Me Know.... <br>What is Your  speciality?';
-        part4Btn0.innerHTML = 'Infrastructure Digital';
-        part4Btn1.innerHTML = 'Development Digital';
-        part4Btn2.innerHTML = "Business Management";
-        part5p0.innerHTML = "<span id='sp'></span>!! WOW Nice Specialist <span id='name'></span> <br> Now to give you the best result i need you to tell me about what interest you more....";
-        part6H0.innerHTML = "Here is your list :)";
-        part6Name.innerHTML = "name";
-        part6Type.innerHTML = "type";                  
-               
-    }
-});
-    
-
 
 
 
@@ -150,7 +98,7 @@ langSBtn.addEventListener("click", function() {
                                     btns.forEach( btn =>{
                                             btn.addEventListener('click',() =>{
                                                     if (btn.id == "job" || btn.id == "internship") {
-                                                        let status  =btn.id;
+                                                        let status  = btn.id;
                                                         console.log(status); 
                                                         //specialist part
                                                         fetch('index02.html')

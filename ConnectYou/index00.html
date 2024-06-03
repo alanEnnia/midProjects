@@ -66,6 +66,23 @@
             align-items: center;
         }
     </style>
+    <script>
+            const part2p0 = document.querySelector('#survey #part2p0');
+            const part2p1 = document.querySelector('#survey #part2p1');
+            const part2Btn0 = document.querySelector('#survey #part2Btn');
+            langSBtn.addEventListener("click", function() {
+                console.log(actualLanguage);
+                if(actualLanguage == 'FR') {
+                    part2p0.innerHTML = "Dites-moi d'abord....";
+                    part2p1.innerHTML = "Quel est ton nom :";
+                    part2Btn0.innerHTML = "suivant";
+                } else {
+                    part2p0.innerHTML = 'Tell me first..';
+                    part2p1.innerHTML = "What is your name :";
+                    part2Btn0.innerHTML = "next";
+                }
+            });
+    </script>
 </head>
 <body>
     <div class="container">
