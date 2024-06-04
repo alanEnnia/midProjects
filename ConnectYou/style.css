@@ -15,7 +15,6 @@ body {
 /*section 01*/
 
   #backSection {
-    background: #E7E7E7;
     min-width: 10%;
     height: 100vh;
     display: flex;
@@ -67,7 +66,6 @@ div#backBtn p {
 /*section 02*/
 
   #homeSection{
-    background: #E7E7E7;
     min-width: 80%;
     height: 100vh;
     display: flex;
@@ -114,7 +112,6 @@ div#backBtn p {
 /*section 03*/
 
   #btnSection{
-    background: #E7E7E7;
     min-width: 10%;
     height: 100vh;
     display: flex;
@@ -305,3 +302,5 @@ div#particleCore {
   }
   
 }
+
+
