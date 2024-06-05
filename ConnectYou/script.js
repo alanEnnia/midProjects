@@ -113,26 +113,119 @@ let part6Type ='' ;
         }
 }
 
-    function switchLight(mode){
+    function switchLight(actualMode){
 
-        if ()
+        if (actualMode == "dark") {
+                const styleBlock = `body {
+                    background: #121212!important;
+                    color: #E7E7E7!important;
+                }
+                
+                div#backBtn {
+                    background: #333!important;
+                    border: 3px solid #444!important;
+                }
+                
+                #backBtn:hover {
+                    background: #444!important;
+                }
+                
+                #langBtn {
+                    background: #333!important;
+                    border: 5px solid #444!important;
+                }
+                
+                #lBtn {
+                    border: 5px solid #444!important;
+                }
+                
+                #mode {
+                    background: #333!important;
+                    border: 5px solid #444!important;
+                }
+                
+                #lightD {
+                    border: 5px solid #444!important;
+                }
 
+                input {
+                    color:white;
+                }
 
+                table, tr, td, th {
+                    border: 1px solid white!important;
+                    border-collapse: collapse;
+                }
+                
+                #expoBtn, #resuBtn {
+                  
+                    box-shadow: 2px 2px 5px rgba(119, 0, 255, 0.473);
+                
+                }
+                
+                    #expoBtn:hover ,#resuBtn:hover{
+                        box-shadow: 4px 4px 10px rgba(119, 0, 255, 0.9);
+                    }
+                
+                `;
+
+                const style = document.createElement('style');
+                style.setAttribute("id", "styleV2");
+                style.innerHTML = styleBlock;
+                document.head.appendChild(style);
+        } else {
+            document.querySelector('style#styleV2').remove();
+        }
     }
+
 
 
 
     lightSBtn.addEventListener("click", function() {
         if (actualMode == "light") {
             actualMode = "dark";
+            switchLight(actualMode);            
+            lightSBtn.innerHTML = '<i class="fa-regular fa-moon"></i>';
             lightSBtn.style.animation = "LBtnActivate 550ms linear";
             lightSBtn.style.transform = "translateY(67px)";
         } else {
             actualMode = "light";
+            switchLight(actualMode);
+            lightSBtn.innerHTML = '<i class="fa-regular fa-sun">';
             lightSBtn.style.animation = "LBtnDeactivate 550ms linear";
             lightSBtn.style.transform = "translateY(0px)";
         }
     });
+
+    let currentPage = 'index.html';
+    const backBtn = document.querySelector('div#backBtn');
+
+    function backFunc (){  
+        if(currentPage == 'index01.html') {
+            fetch('index00.html')
+            .then(response => response.text())
+            .then(data => {
+                survey.innerHTML = data;
+                currentPage = "index00.html";
+                 part2p1 = document.querySelector('#survey #part2p1');
+                 part2p0 = document.querySelector('#survey #part2p0');
+                 part2Btn0 = document.querySelector('#survey #part2Btn');
+                switchLang(actualLanguage);
+             });
+
+        } else 
+        if(currentPage == 'index02.html'){
+
+        }else 
+        if(currentPage == 'index03.html'){
+
+        }else 
+        if(currentPage == 'index04.html'){
+
+        }
+    }
+
+    backBtn.addEventListener("click", backFunc());
 
 /*lang logic */
 
@@ -142,7 +235,7 @@ let part6Type ='' ;
 
             
 
-    },1200);
+    },1000);
     setTimeout(()=>{
             //name part 00           
             survey.style.opacity = 1;
@@ -150,6 +243,7 @@ let part6Type ='' ;
             .then(response => response.text())
             .then(data => {
                 survey.innerHTML = data;
+                currentPage = "index00.html";
                  part2p1 = document.querySelector('#survey #part2p1');
                  part2p0 = document.querySelector('#survey #part2p0');
                  part2Btn0 = document.querySelector('#survey #part2Btn');
@@ -166,7 +260,9 @@ let part6Type ='' ;
                                 survey.style.opacity = 0;
                                 setTimeout (()=>{
                                     part1 = '';
-                                    survey.innerHTML = data; 
+                                    
+                                    survey.innerHTML = data;
+                                    currentPage = 'index01.html';
                                      part3p0 = document.querySelector('#survey #pContainer');
                                      part3Btn0 = document.querySelector('#survey #internship');
                                      part3Btn1 = document.querySelector('#survey #job');
@@ -188,6 +284,7 @@ let part6Type ='' ;
                                                                      part3p0 = '';
                                                                      part3Btn0 = '';
                                                                      part3Btn1 = '';
+                                                                     currentPage = 'index02.html';
                                                                      survey.innerHTML = data;
                                                                      part4p0 = document.querySelector('#survey #pContainer');
                                                                      part4Btn0 =  document.querySelector('#survey #ID');
@@ -211,6 +308,7 @@ let part6Type ='' ;
                                                                                                         part4Btn1 = '';
                                                                                                         part4Btn2 = '';
                                                                                                         survey.innerHTML = data;
+                                                                                                        currentPage = 'index03.html';
                                                                                                         part5p0 = document.querySelector('#survey #pContainer');   
                                                                                                         switchLang(actualLanguage);
                                                                                             
@@ -257,6 +355,7 @@ let part6Type ='' ;
                                                                                                                 btn1.value = 'Énergie renouvelable';
                                                                                                                 btn2.value = 'Industrie automobile';
                                                                                                             }
+                                                                                                            
                                                                                                         }
                                                                                                         part5p0 = '';
                                                                                                         survey.style.opacity = 1;
@@ -285,7 +384,8 @@ let part6Type ='' ;
                                                                                                                                     .then(response => response.text())
                                                                                                                                     .then(data =>{
                                                                                                                                         survey.innerHTML = data;
-                                                                                                                                                                            
+                                                                                                                                        currentPage = 'index04.html';
+                                 
                                                                                                                                          part6H0 = document.querySelector('#survey #Header');
                                                                                                                                          part6Type = document.querySelector('#survey #type');
                                                                                                                                          part6Name = document.querySelector('#survey #name'); 
@@ -299,27 +399,27 @@ let part6Type ='' ;
                                                                                                                                     })
                                                                                                                                 },1500);
 
-                                                                                                                        }, 2000);
+                                                                                                                        }, 500);
 
                                                                                                                     },450);
                                                                                                                 });
                                                                                                         });
-                                                                                                    },1200)
+                                                                                                    },500)
                                                                                              });
                                                                                          }
                                                                              });
                                                                      });
-                                                             },1200);
+                                                             },500);
                                                         });
                                                     }
                                             });
                                     });
-                                    },700);
+                                    },500);
                             })
                     });}     
             )
             .catch(error => console.error('Error loading content:', error));
-    },2000);
+    },2500);
 
 
 

@@ -5,6 +5,9 @@ body {
     box-sizing: border-box;
     display: flex;
     font-family: "Poppins", sans-serif;
+    transition: background .5s linear , color .5s linear ;
+    overflow:hidden;
+
 
     
 }
@@ -40,6 +43,7 @@ body {
     width: 137px;
     position: relative;
     z-index: 400;
+
 }
 
 div#backBtn p {
@@ -135,6 +139,8 @@ div#backBtn p {
     align-content: center;
     align-items: center;
     transform: scale(0.8);
+    transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
+
   
 }
 
@@ -147,6 +153,8 @@ div#backBtn p {
   font-size: 20px;
   font-weight: 500;
   cursor: context-menu;
+  transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
+
 }
 
 
@@ -164,6 +172,8 @@ div#backBtn p {
     align-content: center;
     align-items: center;
     transform: scale(0.8);
+    transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
+
   
 }
 
@@ -173,6 +183,7 @@ div#backBtn p {
   padding:12px 14px!important;
   border-radius:80px;
   margin-top:-4px;
+  transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
   cursor: context-menu;
 }
 
@@ -269,7 +280,7 @@ div#particleCore {
   color: white;
   border: 1px solid #5736DE;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease , background .5s linear , color .5s linear ;
 
 }
 
@@ -302,5 +313,4 @@ div#particleCore {
   }
   
 }
-
 
