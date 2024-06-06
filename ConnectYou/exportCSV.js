@@ -1,4 +1,5 @@
-document.getElementById('expoBtn').addEventListener('click', function () {
+const expoBtn = document.querySelector('button#expoBtn');
+    expoBtn.addEventListener('click', function () {
     // Function to download data as CSV file
     function downloadCSV(csv, filename) {
       let csvFile;
