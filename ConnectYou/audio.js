@@ -1,6 +1,11 @@
-const currentAudio = document.querySelector('#currentAudio'); 
+document.addEventListener('DOMContentLoaded', function() {
+    const currentAudio = document.querySelector('#currentAudio'); 
 
-document.addEventListener('DOMContentLoaded',playAudio(0));
+    document.body.addEventListener('click', function() {
+        playAudio(0);
+        document.body.removeEventListener('click', arguments.callee);
+    });
+});
 
 
 function playAudio(actualPart){

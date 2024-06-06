@@ -54,6 +54,9 @@ function delay(ms) {
 
 
 async function loadingParts(){
+    document.body.addEventListener('click',async function() {
+    playAudio(0);
+    document.body.removeEventListener('click', arguments.callee);
     firstText.style.opacity = 1;
     await delay(3000);
     firstText.style.opacity = 0;
@@ -64,6 +67,7 @@ async function loadingParts(){
     actualPart = 1;
     C1.style.opacity = 1;
     playAudio(actualPart);
+    });
     formC.addEventListener('submit',async function(e){
         e.preventDefault();
         username = document.querySelector('#username').value;
