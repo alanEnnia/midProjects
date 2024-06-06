@@ -80,6 +80,7 @@ async function loadingParts(){
         await delay(100);
         actualPart = 2;
         backBtn.style.opacity = 1;
+        backBtn.style.zIndex = 400;
         C2.style.opacity = 1;
         playAudio(actualPart);
     });
@@ -178,6 +179,7 @@ async function loadingParts(){
                     C5.style.display = 'none';
                     actualPart = 6;
                     backBtn.style.opacity = 1;
+                    backBtn.style.zIndex = 400;
                     C6.style.display = 'flex';
                     C6btns.style.display = 'flex';
                     await delay(800);

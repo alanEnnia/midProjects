@@ -42,8 +42,9 @@ body {
     border: 3px solid black;
     width: 137px;
     position: relative;
-    z-index: 400;
+    z-index: -400;
     opacity: 0;
+
 
 }
 
@@ -210,7 +211,7 @@ div#backBtn p {
   margin-top:-4px;
   font-size: 20px;
   font-weight: 500;
-  cursor: context-menu;
+  cursor: pointer;
   transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
 
 }
@@ -242,7 +243,7 @@ div#backBtn p {
   border-radius:80px;
   margin-top:-4px;
   transition: box-shadow 0.3s ease , background .5s linear , color .5s linear , border .5s linear ;
-  cursor: context-menu;
+  cursor: pointer;
 }
 
 #lightD i {
@@ -417,3 +418,9 @@ h1#Header {
     margin-top: 200px;
 }
 
+
+
+.btns  button#internship {
+  opacity: .5!important;
+  z-index: -2!important;
+}
