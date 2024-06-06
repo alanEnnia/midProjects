@@ -55,7 +55,7 @@ function delay(ms) {
 
 async function loadingParts(){
     firstText.style.opacity = 1;
-    await delay(1000);
+    await delay(3000);
     firstText.style.opacity = 0;
     await delay(800);
     firstText.style.display  ="none";
@@ -63,6 +63,7 @@ async function loadingParts(){
     await delay(100);
     actualPart = 1;
     C1.style.opacity = 1;
+    playAudio(actualPart);
     formC.addEventListener('submit',async function(e){
         e.preventDefault();
         username = document.querySelector('#username').value;
@@ -76,6 +77,7 @@ async function loadingParts(){
         actualPart = 2;
         backBtn.style.opacity = 1;
         C2.style.opacity = 1;
+        playAudio(actualPart);
     });
 
     C2Btns.forEach((btn)=>{
@@ -89,6 +91,7 @@ async function loadingParts(){
                 await delay(100);
                 actualPart = 3;
                 C3.style.opacity = 1;
+                playAudio(actualPart);
             });
     });
 
@@ -139,6 +142,7 @@ async function loadingParts(){
                 await delay(100);
                 actualPart = 4;
                 C4.style.opacity = 1;
+                playAudio(actualPart);
             });
     });
 
@@ -159,11 +163,12 @@ async function loadingParts(){
                     survey.style.marginRight = '-450px';
                     await delay(100);
                     backBtn.style.opacity = 0;
-                    actualPart = 'C5';
+                    actualPart = 5;
                     C5.style.marginBottom = "0px!important";
                     C5.style.opacity = 1; 
+                    playAudio(actualPart);
                     loadJSONData(username,statue,speciality,interest);
-                    await delay(2500);
+                    await delay(6000);
                     C5.style.opacity = 0;   
                     await delay(500);
                     C5.style.display = 'none';
@@ -173,6 +178,7 @@ async function loadingParts(){
                     C6btns.style.display = 'flex';
                     await delay(800);
                     C6btns.style.opacity = 1;
+                    playAudio(actualPart);
                     C6ExportBtn.style.animation = "fromTheTop .8s ease-in-out";
                     C6ResumeBtn.style.animation = "fromTheTop .6s ease-in-out";
                     Particle.style.transform = 'translateY(-20px)';

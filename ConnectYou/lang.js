@@ -79,7 +79,7 @@ function switchLang(actualLanguage){
 
         C4p.innerHTML = "<span id='sp'></span>!! WOW Nice Specialist <span id='name'></span> <br> Now to give you the best result i need you to tell me about what interest you more....";
 
-        C5p.innerHTML = "<p>Okey,i received your informations!<br>  give me a second to see what companies matches with your states..... </p>";
+        C5p.innerHTML = "<p>Okey,i received your informations!<br>  give me a second to see what jobs matches with your states..... </p>";
 
         C6H0.innerHTML = "Here is your List :)";
         jobName.innerHTML = "Job Name";
