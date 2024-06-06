@@ -43,8 +43,13 @@ function switchLang(actualLanguage){
         C5p.innerHTML = "<p>Okey, j'ai reçu vos informations !<br> donnez-moi une seconde pour voir quelles entreprises correspondent à vos états..... </p>";
 
         C6H0.innerHTML = "Voici votre liste :)";
-        C6Type.innerHTML = "genre";
-        C6Name.innerHTML = "nom";
+        jobName.innerHTML = "nom du travail";
+        companyName.innerHTML = "Nom de l'entreprise";
+        locationC.innerHTML = "localisation";
+        dateC.innerHTML = "date";
+        jobType.innerHTML = "Type d'emploi";
+        applyLink.innerHTML = "lien d'applique";
+        
 
         nameC2 = document.querySelector('#C2 #name');
         nameC4 = document.querySelector("#C4 #name");
@@ -76,9 +81,13 @@ function switchLang(actualLanguage){
 
         C5p.innerHTML = "<p>Okey,i received your informations!<br>  give me a second to see what companies matches with your states..... </p>";
 
-        C6H0.innerHTML = "Here is your list :)";
-        C6Type.innerHTML = "type";
-        C6Name.innerHTML = "name";
+        C6H0.innerHTML = "Here is your List :)";
+        jobName.innerHTML = "Job Name";
+        companyName.innerHTML = "Company Name";
+        locationC.innerHTML = "Location";
+        dateC.innerHTML = "Date";
+        jobType.innerHTML = "Job Type";
+        applyLink.innerHTML = "Apply Link";
 
         nameC2 = document.querySelector('#C2 #name');
         nameC4 = document.querySelector("#C4 #name");

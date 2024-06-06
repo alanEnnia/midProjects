@@ -46,8 +46,7 @@ const C4p = document.querySelector("#C4 #pContainer");
 const C5p = document.querySelector("#C5 p");
 
 const C6H0 = document.querySelector("#C6 #Header ");
-const C6Type = document.querySelector("#C6 #type");
-const C6Name = document.querySelector("#C6 #name");
+
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -107,12 +106,12 @@ async function loadingParts(){
                     if (actualLanguage == "EN"){ 
                         btnC4.value = 'Healthcare';
                         btn1C4.value = 'Telecommunications';
-                        btn2C4.value = 'Data Centers';
+                        btn2C4.value = 'Banking';
                     } 
                     if (actualLanguage == "FR") {
                         btnC4.value = 'Soins de santé';
                         btn1C4.value = 'Télécommunications';
-                        btn2C4.value = 'Centres de données';                                                                                                            }
+                        btn2C4.value = 'Bancaire';                                                                                                            }
                 }
                 if (speciality == 'DD'){
                     if (actualLanguage == "EN") { 
@@ -161,7 +160,9 @@ async function loadingParts(){
                     await delay(100);
                     backBtn.style.opacity = 0;
                     actualPart = 'C5';
+                    C5.style.marginBottom = "0px!important";
                     C5.style.opacity = 1; 
+                    loadJSONData(username,statue,speciality,interest);
                     await delay(2500);
                     C5.style.opacity = 0;   
                     await delay(500);
@@ -169,6 +170,7 @@ async function loadingParts(){
                     actualPart = 6;
                     backBtn.style.opacity = 1;
                     C6.style.display = 'flex';
+                    C6btns.style.display = 'flex';
                     await delay(800);
                     C6btns.style.opacity = 1;
                     C6ExportBtn.style.animation = "fromTheTop .8s ease-in-out";
@@ -179,7 +181,7 @@ async function loadingParts(){
     });
  }
 
- 
+
 loadingParts();
 
 

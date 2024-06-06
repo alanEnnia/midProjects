@@ -387,3 +387,33 @@ div#particleCore {
       }
   
 }
+
+#resultTable {
+  width: 1000px;
+  transform: scale(.6);
+  margin-top: 40px;
+}
+
+
+.applyC {
+  background: #5736DE;
+  color: white;
+  transition: opacity 1 linear;
+}
+
+.applyC:hover {
+  opacity: 0.8;
+}
+
+
+
+.applyLink {
+  text-decoration: none;
+  color: white;
+}
+
+h1#Header {
+    margin-bottom: -149px;
+    margin-top: 200px;
+}
+
