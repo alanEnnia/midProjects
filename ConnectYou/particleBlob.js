@@ -106,27 +106,59 @@ const { scene, camera } = Object(__WEBPACK_IMPORTED_MODULE_6__scene__["a" /* def
 });
 
 
+let isAnimating = false;
 
-/*
- function increaseCameraPosWithDelay(amount, delay, steps) {
-  let step = 0;
-  
+function increaseCameraPosWithDelay(amount, delay, steps) {
+  // Check if animation is already in progress
+  if (isAnimating) {
+    return;
+  }
+
+  isAnimating = true;
+
+  const totalSteps = steps;
+  let currentStep = 0;
+  const increment = amount / steps;
   function increaseStep() {
-    if (step < steps) {
-      camera.position.x -= amount / steps; // Increment the position gradually
+    if (currentStep < totalSteps) {
+      camera.position.x -= increment; // Increment the position gradually
       renderer.render(scene, camera);
-      step++;
-      setTimeout(increaseStep, delay);
+      currentStep++;
+      requestAnimationFrame(increaseStep); // Request next frame
+      setTimeout(increaseStep, delay); // Add a delay between each step
+    } else {
+      // Animation completed, reset flag
+      isAnimating = false;
     }
   }
-  
+
   increaseStep();
 }
 
+window.increaseCameraPosWithDelay = increaseCameraPosWithDelay;
 
-*/
+
+function decreaseCameraPosWithDelay(amount, delay, steps) {
 
 
+    const totalSteps = steps;
+    let currentStep = 0;
+    const increment = amount / steps;
+  
+    function increaseStep() {
+      if (currentStep < totalSteps) {
+        camera.position.x += increment; // Increment the position gradually
+        renderer.render(scene, camera);
+        currentStep++;
+        requestAnimationFrame(increaseStep); // Request next frame
+        setTimeout(increaseStep, delay); // Add a delay between each step
+      }
+    }
+  
+    increaseStep();
+  }
+
+window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
 
 
     
@@ -223,18 +255,25 @@ const { scene, camera } = Object(__WEBPACK_IMPORTED_MODULE_6__scene__["a" /* def
     /* 8 */
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
     
-    "use strict";
-    function RenderLoop({renderer, scene, camera, controls, time}) {
-      if (controls) {
-        controls.update();
-      }
-      time.value += 0.0035;
-      window.requestAnimationFrame(() => RenderLoop({renderer, scene, camera, controls, time}));
-      renderer.render(scene, camera);
-    }
-    
-    /* harmony default export */ __webpack_exports__["a"] = (RenderLoop);
-    
+   "use strict";
+
+let timeIncrement = 0.0035;
+
+function adjustTimeIncrement(increment) {
+  timeIncrement = increment;
+}
+
+function RenderLoop({renderer, scene, camera, controls, time}) {
+  if (controls) {
+    controls.update();
+  }
+  time.value += timeIncrement;
+  window.requestAnimationFrame(() => RenderLoop({renderer, scene, camera, controls, time}));
+  renderer.render(scene, camera);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (RenderLoop);
+
     /***/ }),
     /* 9 */
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
