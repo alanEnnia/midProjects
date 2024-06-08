@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const currentAudio = document.querySelector('#currentAudio'); 
 
-    document.body.addEventListener('click', function() {
+    document.body.addEventListener('click', function audioP1() {
         playAudio(0);
-        document.body.removeEventListener('click', arguments.callee);
+        document.body.removeEventListener('click', audioP1);
     });
 });
 

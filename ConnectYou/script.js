@@ -54,9 +54,9 @@ function delay(ms) {
 
 
 async function loadingParts(){
-    document.body.addEventListener('click',async function() {
+    document.body.addEventListener('click',async function audioP() {
     playAudio(0);
-    document.body.removeEventListener('click', arguments.callee);
+    document.body.removeEventListener('click', audioP);
     firstText.style.opacity = 1;
     await delay(3000);
     firstText.style.opacity = 0;
@@ -195,7 +195,6 @@ async function loadingParts(){
 
 
 loadingParts();
-
 
 
 
