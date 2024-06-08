@@ -1,9 +1,8 @@
     const currentAudio = document.querySelector('#currentAudio'); 
  
 
-    let isFirstTime = true;
 
-    function playAudio(actualPart){
+export function playAudio(actualPart){
         
         if (actualPart != 0) {
             if (actualLanguage == 'EN'){ 
@@ -19,10 +18,14 @@
     }
     
 
+
     currentAudio.addEventListener('play',()=>{
         increaseCameraPosWithDelay(10, 800, 50);
+
     });
 
-    currentAudio.addEventListener('ended',()=>{
+
+    currentAudio.addEventListener('ended', ()=>{
+
         decreaseCameraPosWithDelay(10,800,50);
     });

@@ -1,3 +1,7 @@
+
+
+
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -121,7 +125,7 @@ function increaseCameraPosWithDelay(amount, delay, steps) {
   const increment = amount / steps;
   function increaseStep() {
     if (currentStep < totalSteps) {
-      camera.position.x -= increment; // Increment the position gradually
+      camera.position.x += increment; // Increment the position gradually
       renderer.render(scene, camera);
       currentStep++;
       requestAnimationFrame(increaseStep); // Request next frame
@@ -147,7 +151,7 @@ function decreaseCameraPosWithDelay(amount, delay, steps) {
   
     function increaseStep() {
       if (currentStep < totalSteps) {
-        camera.position.x += increment; // Increment the position gradually
+        camera.position.x -= increment; // Increment the position gradually
         renderer.render(scene, camera);
         currentStep++;
         requestAnimationFrame(increaseStep); // Request next frame
@@ -254,27 +258,45 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
     /***/ }),
     /* 8 */
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+   
     
    "use strict";
 
-let timeIncrement = 0.0035;
+   
 
-function adjustTimeIncrement(increment) {
-  timeIncrement = increment;
+   function RenderLoop({ renderer, scene, camera, controls, time, updateTime }) {
+    if (controls) {
+        controls.update();
+    }
+
+    // Increase time value by different amounts based on audio state
+    const increaseAmount = currentAudio.paused ? 0.0035 : 0.015;
+    time.value += increaseAmount;
+
+    window.requestAnimationFrame(() => RenderLoop({ renderer, scene, camera, controls, time, updateTime }));
+    renderer.render(scene, camera);
 }
 
-function RenderLoop({renderer, scene, camera, controls, time}) {
-  if (controls) {
-    controls.update();
-  }
-  time.value += timeIncrement;
-  window.requestAnimationFrame(() => RenderLoop({renderer, scene, camera, controls, time}));
-  renderer.render(scene, camera);
+// Function to handle audio end event
+function handleAudioEnd() {
+    time.value = 0.0035; // Reset time value to default when audio ends
 }
+
+// Function to handle audio play event
+function handleAudioPlay() {
+    time.value = 0.015; // Set time value to 0.01 when audio starts playing
+}
+
+// Add event listeners to your audio element
+currentAudio.addEventListener('ended', handleAudioEnd);
+currentAudio.addEventListener('play', handleAudioPlay);
 
 /* harmony default export */ __webpack_exports__["a"] = (RenderLoop);
+ }
+),
 
-    /***/ }),
+  
     /* 9 */
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
     
@@ -1413,3 +1435,9 @@ function RenderLoop({renderer, scene, camera, controls, time}) {
     /***/ })
     /******/ ]);
 
+    
+
+
+    
+
+    
