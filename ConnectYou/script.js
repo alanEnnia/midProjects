@@ -123,26 +123,26 @@ async function loadingParts(){
                 }
                 if (speciality == 'DD'){
                     if (actualLanguage == "EN") { 
-                        btnC4.value = 'EdTech';
-                        btn1C4.value = 'Telecommunications';
-                        btn2C4.value = 'E-commerce';
+                        btnC4.value = 'Information&Media';
+                        btn1C4.value = 'Technology&Service';
+                        btn2C4.value = 'Telecommunication';
                     }
                     if (actualLanguage == "FR") { 
-                        btnC4.value = 'Technologie éducative';
-                        btn1C4.value = 'Télécommunications';
-                        btn2C4.value = 'E-commerce';
+                        btnC4.value = 'Informations Et Médias';
+                        btn1C4.value = 'Technologie Et Service';
+                        btn2C4.value = 'Télécommunications';
                     }
                 }
                 if (speciality == 'BM'){
                     if (actualLanguage == "EN") { 
-                        btnC4.value = 'Manufacturing';
-                        btn1C4.value = 'Renewable Energy';
-                        btn2C4.value = 'Automotive Industry';
+                        btnC4.value = 'Business Consulting';
+                        btn1C4.value = 'Financial Services';
+                        btn2C4.value = 'Information&Media';
                      }
                     if (actualLanguage == "FR") {
-                        btnC4.value = 'Fabrication';
-                        btn1C4.value = 'Énergie renouvelable';
-                        btn2C4.value = 'Industrie automobile';
+                        btnC4.value = 'Conseil aux entreprises';
+                        btn1C4.value = 'Services Financiers';
+                        btn2C4.value = 'Informations et Médias';
                     }}
                 await delay(100);
                 actualPart = 4;
@@ -164,13 +164,14 @@ async function loadingParts(){
                     Particle.style.animation = "part5AnParticle 1s ease-in-out";
                     survey.style.animation = "part5AnSurvey 1s ease-in-out";
                     Particle.style.marginLeft = '-800px';
-                    Particle.style.marginBottom = '-322px';
+                    Particle.style.marginBottom = '-285px';
                     survey.style.marginRight = '-450px';
                     await delay(100);
                     backBtn.style.opacity = 0;
                     actualPart = 5;
-                    C5.style.marginBottom = "0px!important";
+                    C5.style.marginBottom = '-120px!important';
                     C5.style.opacity = 1; 
+                    
                     playAudio(actualPart);
                     loadJSONData(username,statue,speciality,interest);
                     await delay(6000);

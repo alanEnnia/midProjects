@@ -131,7 +131,7 @@ div#backBtn p {
   }
   100% {
     margin-left: -800px;
-    margin-bottom: -322px;
+    margin-bottom: -285px;
     }
      }
 
@@ -147,11 +147,11 @@ div#backBtn p {
 @keyframes part5AnParticleR {
   0% {
     margin-left: -800px;
-    margin-bottom: -322px;
+    margin-bottom: -285px;
     }
     100% {
-      margin-left: 0px;
-      margin-bottom: 0px;
+      margin-left: -38px;
+      margin-bottom: -61px;
       
       }
 }
@@ -311,6 +311,10 @@ div#backBtn p {
   margin-top: 223px!important;
       margin-left: -726px!important;
       transform: scale(1.3)!important;
+}
+
+#particleBlob div#btnContainer  {
+  display: none;
 }
 
 

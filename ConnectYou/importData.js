@@ -28,6 +28,46 @@ function loadJSONData(username,statue,speciality,interest) {
             .then(data => insertDataIntoTable(data))
             .catch(error => console.error('Error loading JSON data:', error));
         }
+    }else
+    if (speciality == 'DD'){
+        if (interest == 'Information&Media' || interest == 'Informations Et Médias') {
+            fetch('./data/Infrastructure digital/banking.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }else 
+        if(interest == 'Technology&Service' || interest == 'Technologie Et Service'  ){
+            fetch('./data/Infrastructure digital/healthcare.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }else 
+        if(interest == 'Telecommunication' || interest == 'Télécommunications' ){
+            fetch('./data/Infrastructure digital/telecommunication.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }
+    } else 
+    if (speciality == 'BM'){
+        if (interest == 'Business Consulting' || interest == 'Conseil aux entreprises') {
+            fetch('./data/Infrastructure digital/banking.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }else 
+        if(interest == 'Financial Services' || interest == 'Services Financiers'  ){
+            fetch('./data/Infrastructure digital/healthcare.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }else 
+        if(interest == 'Information&Media' || interest == 'Informations et Médias' ){
+            fetch('./data/Infrastructure digital/telecommunication.json')
+            .then(response => response.json())
+            .then(data => insertDataIntoTable(data))
+            .catch(error => console.error('Error loading JSON data:', error));
+        }
     }
 }
 

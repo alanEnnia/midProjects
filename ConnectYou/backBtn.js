@@ -10,7 +10,7 @@ backBtn.addEventListener("click",async function(){
         Cpart = 'C' + actualPart;
         Cpart = document.querySelector('#' + Cpart);
         Cpart.style.opacity = 0;
-        if (actualPart != 6){        
+        if (actualPart != 6 ){        
             await delay(100);
             Cpart.style.display = "none";
             actualPart--;
@@ -28,14 +28,13 @@ backBtn.addEventListener("click",async function(){
                     }
         else {
             Particle.style.animation = "part5AnParticleR 1s ease-in-out";
-            survey.style.animation = "part5AnSurvey 1s ease-in-out";
             survey.style.animation = "part5AnSurveyR 1s ease-in-out";
             C6btns.style.opacity = 0;       
             await delay(800);    
             C6btns.style.display = 'none';
             Particle.style.transform = 'translateY(0px)';
-            Particle.style.marginLeft = '0px';
-            Particle.style.marginBottom = '-40px';
+            Particle.style.marginLeft = '-38px';
+            Particle.style.marginBottom = '-61px';
             survey.style.marginRight = '0px';
             Cpart.style.opacity = 0;
             await delay(100);
