@@ -171,10 +171,14 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
     controls.rotateSpeed = 0.5;
     controls.dampingFactor = 0.25;
     
-    const sphere = Object(__WEBPACK_IMPORTED_MODULE_8__sphere__["a" /* default */])({
+    var sphere = Object(__WEBPACK_IMPORTED_MODULE_8__sphere__["a" /* default */])
+    ({
       fragmentShader: __WEBPACK_IMPORTED_MODULE_3__shaders_frag_glsl___default.a,
       vertexShader: __WEBPACK_IMPORTED_MODULE_4__shaders_vert_glsl___default.a
     });
+    
+
+    
     
     scene.add(sphere);
     window.addEventListener('resize', () => {
@@ -264,7 +268,7 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
    "use strict";
 
    
-
+    
    function RenderLoop({ renderer, scene, camera, controls, time, updateTime }) {
     if (controls) {
         controls.update();
@@ -278,19 +282,6 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
     renderer.render(scene, camera);
 }
 
-// Function to handle audio end event
-function handleAudioEnd() {
-    time.value = 0.0035; // Reset time value to default when audio ends
-}
-
-// Function to handle audio play event
-function handleAudioPlay() {
-    time.value = 0.015; // Set time value to 0.01 when audio starts playing
-}
-
-// Add event listeners to your audio element
-currentAudio.addEventListener('ended', handleAudioEnd);
-currentAudio.addEventListener('play', handleAudioPlay);
 
 /* harmony default export */ __webpack_exports__["a"] = (RenderLoop);
  }
@@ -305,66 +296,85 @@ currentAudio.addEventListener('play', handleAudioPlay);
     /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_three___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_three__);
     /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__circle_texture__ = __webpack_require__(10);
     
+    let currentColor = 'gray';
     
-    
-    function Sphere({fragmentShader, vertexShader}) {
-    
-      const PARTICLE_SIZE = 1;
-      const textureAttr = {
-        resolution: 64,
+
+        function Sphere({fragmentShader, vertexShader, color = currentColor }) {
+            
+        let textureAttr = {
+        resolution: 65,
         radius: 32,
-        color: '#ffffff'
-      };
-    
-      const geo = new __WEBPACK_IMPORTED_MODULE_0_three__["IcosahedronGeometry"](20, 5);
-      const vertices = geo.vertices;
-      const positions = new Float32Array(vertices.length * 3);
-      const sizes = new Float32Array(vertices.length);
-    
-      vertices.forEach((vert, i) => {
-        vert.toArray(positions, i * 3);
-        sizes[i] = PARTICLE_SIZE;
-      });
-    
-      const bufferGeo = new __WEBPACK_IMPORTED_MODULE_0_three__["BufferGeometry"]();
-      bufferGeo.addAttribute('position', new __WEBPACK_IMPORTED_MODULE_0_three__["BufferAttribute"](positions, 3));
-      bufferGeo.addAttribute('size', new __WEBPACK_IMPORTED_MODULE_0_three__["BufferAttribute"](sizes, 1));
-    
-      const material = new __WEBPACK_IMPORTED_MODULE_0_three__["ShaderMaterial"]( {
-        uniforms: {
-          time: { value: 0.0 },
-          texture: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["CanvasTexture"](Object(__WEBPACK_IMPORTED_MODULE_1__circle_texture__["a" /* CircleTexture */])(textureAttr)) },
-          resolution: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Vector2"]() }
-        },
-        fragmentShader,
-        vertexShader,
-        transparent: true,
-        alphaTest: 0.9
-      });
-      material.uniforms.texture.value.wrapS = __WEBPACK_IMPORTED_MODULE_0_three__["RepeatWrapping"];
-      material.uniforms.texture.value.wrapT = __WEBPACK_IMPORTED_MODULE_0_three__["RepeatWrapping"];
-      const sphere = new __WEBPACK_IMPORTED_MODULE_0_three__["Points"](bufferGeo, material);
-      sphere.rotation.set(0, Math.PI, 0);
-      return sphere;
-    }
-    
-    /* harmony default export */ __webpack_exports__["a"] = (Sphere);
-    
-    
-    /***/ }),
+        color: currentColor
+
+         };      
+        const PARTICLE_SIZE = 1;
+       /* var textureAttr = {
+            resolution: 65,
+            radius: 32,
+            color: color
+        };*/
+
+        const geo = new __WEBPACK_IMPORTED_MODULE_0_three__["IcosahedronGeometry"](20, 5);
+        const vertices = geo.vertices;
+        const positions = new Float32Array(vertices.length * 280);
+        const sizes = new Float32Array(vertices.length);
+        
+        vertices.forEach((vert, i) => {
+            vert.toArray(positions, i * 3);
+            sizes[i] = PARTICLE_SIZE;
+        });
+        
+        const bufferGeo = new __WEBPACK_IMPORTED_MODULE_0_three__["BufferGeometry"]();
+        bufferGeo.addAttribute('position', new __WEBPACK_IMPORTED_MODULE_0_three__["BufferAttribute"](positions, 3));
+        bufferGeo.addAttribute('size', new __WEBPACK_IMPORTED_MODULE_0_three__["BufferAttribute"](sizes, 1));
+        
+        const material = new __WEBPACK_IMPORTED_MODULE_0_three__["ShaderMaterial"]( {
+            uniforms: {
+            time: { value: 0.0 },
+            texture: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["CanvasTexture"](Object(__WEBPACK_IMPORTED_MODULE_1__circle_texture__["a" /* CircleTexture */])(textureAttr)) },
+            resolution: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Vector2"]() },
+            color: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Color"]( currentColor ) } 
+            },
+            fragmentShader,
+            vertexShader,
+            transparent: false,
+            alphaTest: 0.9,
+        });
+        material.uniforms.texture.value.wrapS = __WEBPACK_IMPORTED_MODULE_0_three__["RepeatWrapping"];
+        material.uniforms.texture.value.wrapT = __WEBPACK_IMPORTED_MODULE_0_three__["RepeatWrapping"];
+        var sphere = new __WEBPACK_IMPORTED_MODULE_0_three__["Points"](bufferGeo, material);
+        sphere.rotation.set(0, Math.PI, 0);
+
+        
+        return sphere;
+        } 
+
+
+        __webpack_exports__["a"] = Sphere;
+        
+
+
+     
+            
+ 
+       
+
+        
+        /***/ }),
     /* 10 */
     /***/ (function(module, __webpack_exports__, __webpack_require__) {
     
     "use strict";
     /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CircleTexture; });
-    function CircleTexture({resolution = 64, radius = 32, color = '#ffffff', debug = false}) {
+    function CircleTexture({resolution = 64, radius = 32, color = 'black', debug = true}) {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       canvas.height = resolution;
       canvas.width = resolution;
+      canvas.classList.add('NoneCanvas')
     
       if (debug) {
-        ctx.fillStyle = '#ff0000';
+        ctx.fillStyle = 'white';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         canvas.style.position = 'absolute';
         canvas.style.top = 0;
@@ -375,7 +385,7 @@ currentAudio.addEventListener('play', handleAudioPlay);
       const y = resolution / 2;
       const drawRadius = resolution / 2 / radius;
       const startAngle = 0;
-      const endAngle = Math.PI * 2;
+      const endAngle = Math.PI * 12;
     
       ctx.fillStyle = color;
     
@@ -384,6 +394,7 @@ currentAudio.addEventListener('play', handleAudioPlay);
     
       return canvas;
     }
+    
     
     
     
@@ -1437,7 +1448,5 @@ currentAudio.addEventListener('play', handleAudioPlay);
 
     
 
-
-    
 
     

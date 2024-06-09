@@ -441,3 +441,7 @@ h1#Header {
 input[type="submit"] , button {
   cursor: pointer;
 }
+
+.NoneCanvas {
+  display: none;
+}
