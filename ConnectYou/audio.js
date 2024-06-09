@@ -20,12 +20,13 @@ export function playAudio(actualPart){
 
 
     currentAudio.addEventListener('play',()=>{
-        increaseCameraPosWithDelay(10, 800, 50);
+        increaseCameraPosWithDelay(10, 800, 30);
+
 
     });
 
 
     currentAudio.addEventListener('ended', ()=>{
 
-        decreaseCameraPosWithDelay(10,800,50);
+        decreaseCameraPosWithDelay(10,100,5);
     });

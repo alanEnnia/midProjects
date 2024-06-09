@@ -176,7 +176,10 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
       fragmentShader: __WEBPACK_IMPORTED_MODULE_3__shaders_frag_glsl___default.a,
       vertexShader: __WEBPACK_IMPORTED_MODULE_4__shaders_vert_glsl___default.a
     });
+
     
+    
+
 
     
     
@@ -296,23 +299,17 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
     /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_three___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_three__);
     /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__circle_texture__ = __webpack_require__(10);
     
-    let currentColor = 'gray';
     
-
-        function Sphere({fragmentShader, vertexShader, color = currentColor }) {
+        function Sphere({fragmentShader, vertexShader}) {
             
+       
+        const PARTICLE_SIZE = 1;
         let textureAttr = {
         resolution: 65,
         radius: 32,
-        color: currentColor
+        color: 'gray'
 
-         };      
-        const PARTICLE_SIZE = 1;
-       /* var textureAttr = {
-            resolution: 65,
-            radius: 32,
-            color: color
-        };*/
+         };   
 
         const geo = new __WEBPACK_IMPORTED_MODULE_0_three__["IcosahedronGeometry"](20, 5);
         const vertices = geo.vertices;
@@ -332,8 +329,7 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
             uniforms: {
             time: { value: 0.0 },
             texture: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["CanvasTexture"](Object(__WEBPACK_IMPORTED_MODULE_1__circle_texture__["a" /* CircleTexture */])(textureAttr)) },
-            resolution: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Vector2"]() },
-            color: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Color"]( currentColor ) } 
+            resolution: { value: new __WEBPACK_IMPORTED_MODULE_0_three__["Vector2"]() }
             },
             fragmentShader,
             vertexShader,
@@ -348,16 +344,11 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
         
         return sphere;
         } 
-
-
         __webpack_exports__["a"] = Sphere;
+
         
-
-
-     
-            
- 
-       
+        
+        
 
         
         /***/ }),
@@ -366,7 +357,7 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
     
     "use strict";
     /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CircleTexture; });
-    function CircleTexture({resolution = 64, radius = 32, color = 'black', debug = true}) {
+    function CircleTexture({resolution = 64, radius = 32, color = '', debug = false}) {
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       canvas.height = resolution;
@@ -387,14 +378,13 @@ window.decreaseCameraPosWithDelay = decreaseCameraPosWithDelay;
       const startAngle = 0;
       const endAngle = Math.PI * 12;
     
-      ctx.fillStyle = color;
+      ctx.fillStyle = 'white' ;
     
       ctx.arc(x, y, radius, startAngle, endAngle);
       ctx.fill();
     
       return canvas;
     }
-    
     
     
     
