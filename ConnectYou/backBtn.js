@@ -3,6 +3,7 @@
 var actualPart = 0;
 const backBtn = document.querySelector('#backBtn');
 
+
 /*backBtn logic */
 backBtn.addEventListener("click",async function(){
     if (actualPart != 0){
@@ -15,10 +16,16 @@ backBtn.addEventListener("click",async function(){
             actualPart--;
             Cpart = 'C' + actualPart;
             Cpart = document.querySelector('#' + Cpart);
-            Cpart.style.display = "block";
+            Cpart.style.display = "flex";
             await delay(100);
             Cpart.style.opacity = 1;
-        }
+
+            
+            if (C1.style.display != "none"){
+                backBtn.style.opacity = 0;
+                backBtn.style.zIndex = '-33';
+            }
+                    }
         else {
             Particle.style.animation = "part5AnParticleR 1s ease-in-out";
             survey.style.animation = "part5AnSurvey 1s ease-in-out";
@@ -28,7 +35,7 @@ backBtn.addEventListener("click",async function(){
             C6btns.style.display = 'none';
             Particle.style.transform = 'translateY(0px)';
             Particle.style.marginLeft = '0px';
-            Particle.style.marginBottom = '0px';
+            Particle.style.marginBottom = '-40px';
             survey.style.marginRight = '0px';
             Cpart.style.opacity = 0;
             await delay(100);

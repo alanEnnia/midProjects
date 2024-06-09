@@ -340,20 +340,21 @@ div#particleCore {
 
 #expoBtn, #resuBtn, #C1Btn {
   width: 140px;
-  height: 29px;
+  height: 38px;
   font-size: 16px;
   border-radius: 30px;
   background: #5736DE;
   color: white; 
   border: 1px solid #5736DE;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.3s ease , background .5s linear , color .5s linear ;
+  transition: opacity .4s ease-in-out, box-shadow 0.3s ease , background .5s linear , color .5s linear ;
 
 }
 
 
   #expoBtn:hover ,#resuBtn:hover{
-      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 4px 4px 10px rgba(12, 24, 196, 0.4);
+      opacity: .9;
   }
 
   /**/
@@ -444,4 +445,35 @@ input[type="submit"] , button {
 
 .NoneCanvas {
   display: none;
+}
+
+/*final tweak*/
+
+#C1Btn{
+  margin-top: 20px;
+}
+
+.btns button ,.btns input{
+  /* padding: 10px 20px; */
+  font-size: 13px;
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: opacity .4s ease-in-out;
+}
+
+ .btns button:hover ,.btns input:hover {
+  opacity: .7;
+}
+
+#C5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end!important;
+    height: 100%;
+    width: 100%;
+}
+
+.btns {
+  gap: 31px;
 }

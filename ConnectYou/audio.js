@@ -2,7 +2,7 @@
  
 
 
-export function playAudio(actualPart){
+ function playAudio(actualPart){
         
         if (actualPart != 0) {
             if (actualLanguage == 'EN'){ 

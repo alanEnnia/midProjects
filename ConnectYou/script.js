@@ -1,5 +1,3 @@
-import { playAudio } from './audio.js';
-
 const survey = document.querySelector("#survey");
 const firstText = document.querySelector("#firstText");
 const containers = document.querySelectorAll(".container");

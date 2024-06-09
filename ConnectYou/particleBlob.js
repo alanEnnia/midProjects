@@ -125,7 +125,10 @@ function increaseCameraPosWithDelay(amount, delay, steps) {
   const increment = amount / steps;
   function increaseStep() {
     if (currentStep < totalSteps) {
-      camera.position.x += increment; // Increment the position gradually
+        if (camera.position.x < 90){ 
+      camera.position.x += increment; } 
+      
+      // Increment the position gradually
       renderer.render(scene, camera);
       currentStep++;
       requestAnimationFrame(increaseStep); // Request next frame
@@ -144,11 +147,9 @@ window.increaseCameraPosWithDelay = increaseCameraPosWithDelay;
 
 function decreaseCameraPosWithDelay(amount, delay, steps) {
 
-
     const totalSteps = steps;
     let currentStep = 0;
     const increment = amount / steps;
-  
     function increaseStep() {
       if (currentStep < totalSteps) {
         camera.position.x -= increment; // Increment the position gradually
