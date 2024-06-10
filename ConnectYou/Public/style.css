@@ -194,6 +194,35 @@ div#backBtn p {
 }
 
 
+@keyframes part5AnParticleR2 {
+  0% {
+   
+    margin-left: 16px!important;
+    margin-bottom: -236px!important;
+    transform: scale(0.6) translateY(-406px);
+    }
+    100% {
+      transform: scale(1) translateY(-406px);
+      margin-left: -800px!important;
+      margin-bottom: -1000px!important;
+      
+      }
+}
+
+@keyframes part5AnSurveyR2 {
+  0% {
+    margin-right: 0px;
+    opacity: 1;
+  }
+  100%{
+    margin-right: -343px;
+   
+    opacity: 1;
+  }
+  
+}
+
+
 /**/
 
 /*section 03*/

@@ -28,6 +28,7 @@
 
  
   <script  src="./script.js" defer></script>
+  <script src="./turnPDF.js" ></script>
     
 
     
@@ -194,7 +195,8 @@
                 <br>
                 <input type="email" id="email" placeholder="email">
                 <input type="text" id="habits" placeholder="basketball,running" >
-              </div>
+                <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" maxlength="10">
+            </div>
               <div id="btns">
                 <button type="button" class="Skip Clear">clear</button>
                 <button type="button" class="Submit">submit</button>
@@ -246,38 +248,67 @@
               </div>
               <div id="btns">
                 <button type="button" class="Skip">Skip</button>
-                <button type="button" id="FinalNext">Next</button>
+                <button type="button" id="Next">Next</button>
                 <button type="button" id="Add">Add</button>
               </div>
             </form>
         
       </div>
 
-      <div id="C10" class="container Cpart2">
+       <div id="C10" class="container Cpart2">
                      
-        <div class="header">
-          <h1>i created “about me” section for you</h1>
-          <p>see if there is some thing that needs to be edited!</p>
-          
-        </div>
-        
-        <form action="" id="GenAiForm3">
-          
-          <div id="body">
-                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum enim ut veritatis nobis. Dicta a distinctio consequatur porro sunt modi aspernatur, illo veritatis nesciunt eos sapiente, sit natus error.</P>
-
-          </div>
-          <div id="btns">
+            <div class="header">
+              <h1>Any Past Projects?</h1>
+              
+            </div>
             
-            <button type="button" id="FinalNext">Next</button>
-            <button type="button" id="AgainGenAi">Again</button>
-          </div>
-        </form>
-    
-  </div>
-
-
+            <form action="" id="GenAiForm3">
+              
+              <div id="inputs"  style="display: flex;">
+                  <input type="text" id="projectName" placeholder="Name of the project" style="width: 300px;">
+                  <input type="text" id="projectDesc" placeholder="Descripe it ( ai will help :> )"   style="
+                  width: 500px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  align-content: center;
+              ">
+              </div>
+              <div id="btns">
+                <button type="button" class="Skip">Skip</button>
+                <button type="button" id="Next">Next</button>
+                <button type="button" id="Add">Add</button>
+              </div>
+            </form>
         
+      </div>
+
+  
+  <div id="C11" class="container Cpart2">
+                     
+    <div class="header">
+      <h1>i created “about me” section for you</h1>
+      <p>see if there is some thing that needs to be edited!</p>
+      
+    </div>
+    
+    <form action="" id="GenAiForm3">
+      
+      <div id="body">
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum enim ut veritatis nobis. Dicta a distinctio consequatur porro sunt modi aspernatur, illo veritatis nesciunt eos sapiente, sit natus error.</P>
+
+      </div>
+      <div id="btns">
+        
+        <button type="button" id="FinalNext">Next</button>
+        <button type="button" id="AgainGenAi">Again</button>
+      </div>
+    </form>
+
+</div>
+
+<div id="C12" class="container Cpart2" >
+</div>
     </div>
 
 

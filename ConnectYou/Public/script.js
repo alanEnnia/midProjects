@@ -53,6 +53,7 @@ const C7Age = document.querySelector('#C7 #age ');
 const C7Citizenship = document.querySelector('#C7 select');
 const C7Lang = document.querySelector('#C7 #languages');
 const C7Email = document.querySelector('#C7 #email');
+const C7Phone = document.querySelector('#C7 #phoneNumber');
 const C7Habits = document.querySelector('#C7 #habits');
 const C7Submit = document.querySelector('#C7 .Submit');
 
@@ -60,6 +61,7 @@ const C7Submit = document.querySelector('#C7 .Submit');
 var  Age;
 var  langs;
 var   Email ;
+var   PhoneNumber ;
 var   Habits;
 var Citizenship;
 
@@ -74,13 +76,13 @@ const C8Skip  = document.querySelector("#C8 .Skip");
 const C8Next = document.querySelector('#C8 #Next');
 const C8Add = document.querySelector('#C8 #Add');
 
-var Experiences = ['none'];
+var Experiences = [];
 var Experience;
 
 const C9 = document.querySelector('#C9');
 
 const C9Skip = document.querySelector('#C9 .Skip');
-const C9Next = document.querySelector('#C9 #FinalNext');
+const C9Next = document.querySelector('#C9 #Next');
 const C9Add = document.querySelector('#C9 #Add');
 
 const   degreeName       = document.querySelector('#C9 #degreeName');
@@ -88,12 +90,36 @@ const    universityName  = document.querySelector('#C9 #universityName');
 const    degreeDate = document.querySelector('#C9 #degreeDate');
 const    degreeDuration = document.querySelector('#C9 #degreeDuration');
 
-var Degrees = ['none'];
-var Degree;
+let Degrees = [];
+let Degree;
 var OutputPrompt;
 
-const pPrompt = document.querySelector('#C10 #body p');
-const againBtn = document.querySelector('#C10 #AgainGenAi');
+const pPrompt = document.querySelector('#C11 #body p');
+const againBtn = document.querySelector('#C11 #AgainGenAi');
+
+const C10 = document.querySelector("#C10");
+
+const C10Skip = document.querySelector('#C10 .Skip');
+const C10Next = document.querySelector("#C10 #Next");
+const C10Add = document.querySelector("#C10 #Add");
+
+
+const C11 = document.querySelector("#C11");
+
+
+var Projects = [];
+var Project;
+const prjName = document.querySelector('#C10 #projectName');
+const prjDesc = document.querySelector('#C10 #projectDesc');
+
+const C11Next = document.querySelector('#C11 #FinalNext');
+
+var C12;
+
+
+
+
+
 
 
 
@@ -117,6 +143,7 @@ async function loadingParts(){
     C1.style.opacity = 1;
     playAudio(actualPart);
     });
+
     formC.addEventListener('submit',async function(e){
         e.preventDefault();
         username = document.querySelector('#username').value;
@@ -267,16 +294,18 @@ async function loadingParts(){
         C7Age.value = '';
         C7Lang.value = '';
         C7Email.value = '';
+        C7Phone.value = '';
         C7Habits.value = '';
     });
 
     C7Submit.addEventListener('click', async ()=>{
-        if(C7Age.value === '' || C7Lang.value === '' || C7Email.value === '' || C7Habits.value === '' ){
+        if(C7Age.value === '' || C7Lang.value === '' || C7Email.value === '' || C7Habits.value === '' || C7Phone.value == '' ){
             alert('Fill Your Informations!');
         }else {
               Age = C7Age.value;
               langs = C7Lang.value;
                Email =  C7Email.value;
+               Phone = C7Phone.value;
                Habits = C7Habits.value;
              Citizenship = C7Citizenship.value;
             C7.style.opacity = 0;
@@ -301,6 +330,7 @@ async function loadingParts(){
                 fromDate: fromDate.value,
                 toDate: toDate.value
             };
+
             Experiences.push(Experience);
             console.log(Experience);
             console.log(Experiences);
@@ -314,7 +344,7 @@ async function loadingParts(){
     });
 
     C8Skip.addEventListener('click', async ()=>{
-        Experiences = ['none'];
+        Experiences = [];
         C8.style.opacity = 0;
         await delay(800);
         C8.style.display = 'none';
@@ -325,8 +355,10 @@ async function loadingParts(){
     });
 
     C8Next.addEventListener('click', async ()=>{
-        if (Experiences == ['none'] ){
-            alert('Please Add At Least One Work Experience!');
+        if (Experiences.length == 0){
+
+            alert('Fill Your Work Experience!');
+            
         }else {
             C8.style.opacity = 0;
             await delay(800);
@@ -339,12 +371,10 @@ async function loadingParts(){
     });
 
     C9Skip.addEventListener('click',async ()=>{
-        Degrees = ['none'];
+        Degrees = [];
         C9.style.opacity = 0;
         await delay(800);
         C9.style.display = 'none';
-        OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
-        pPrompt.innerHTML = OutputPrompt;
         C10.style.display = 'flex';
         actualPart = 10;
         await delay(100);
@@ -371,7 +401,7 @@ async function loadingParts(){
     });
 
     C9Next.addEventListener('click',async ()=>{
-        if (Degrees == ['none'] ){
+        if (Degrees.length == 0){
             alert('Please Add At Least One Degree!');
         } else{
             C9.style.opacity = 0;
@@ -391,6 +421,63 @@ async function loadingParts(){
         }
     });
 
+
+    C10Add.addEventListener('click',async ()=>{
+        if (prjName.value == '' || prjDesc.value == '') {
+            alert('Please Fill All The Fields!');
+        }else{
+             Project = {
+                projectName: prjName.value,
+                projectDesc: prjDesc.value       
+             }
+
+             Projects.push(Project);
+             prjName.value = '';
+             prjDesc.value = '';
+             if(actualLanguage == 'FR'){ 
+                alert('Projet Ajouté avec Succès!');
+
+             }else{
+                alert('Project Added Successfully!');
+             }
+    } });
+    
+    C10Skip.addEventListener('click',async ()=>{
+
+        Projects = [];
+        C10.style.opacity = 0;
+        await delay(800);
+        C10.style.display = 'none';
+        OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
+        pPrompt.innerHTML  = OutputPrompt;
+        C11.style.display = 'flex';
+        actualPart = 11;
+        await delay(100);
+        C11.style.opacity = 1;
+    });
+
+
+    C10Next.addEventListener('click',async ()=>{
+        if (Projects.length == 0){
+            alert('Please Add At Least One Degree!');
+        } else{
+            C10.style.opacity = 0;
+            await delay(800);
+            C10.style.display = 'none';
+            OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
+            pPrompt.innerHTML  = OutputPrompt;
+            C11.style.display = 'flex';
+            actualPart = 11;
+            await delay(100);
+            C11.style.opacity  = 1;
+            const aiImg = document.querySelector('#particleCore img#AiImg');
+            aiImg.style.display = 'block';
+            await delay(100);
+            aiImg.style.opacity = 1;
+            aiImg.style.transform = 'translate(214px, -24px)';
+        }
+    });
+
     againBtn.addEventListener('click',async ()=>{
         pPrompt.style.opacity = 0;
         OutputPrompt = await genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
@@ -399,19 +486,29 @@ async function loadingParts(){
         pPrompt.style.opacity = 1;
     });
 
+
+    C11Next.addEventListener('click',async ()=>{
+        C11.style.opacity = 0;
+        await delay(400);
+        C11.style.display = 'none';        
+        await turnPDF(username,Email,PhoneNumber,OutputPrompt,Experiences,Degrees,Projects,habits,speciality,actualLanguage);
+        C12 = document.querySelector('#C12');
+        C12.style.display = 'block';
+        Particle.style.animation = "part5AnParticle2 1s ease-in-out";
+        survey.style.animation = "part5AnSurvey2 1s ease-in-out";
+        Particle.style.marginLeft = '-800px';
+        Particle.style.marginBottom = '-1000px';
+        Particle.style.transform = 'scale(1) translateY(-406px)';
+        survey.style.marginRight = '-343px';
+        C12.style.transform = 'scale(.7)';
+        actualPart = 12;
+        await delay(100);
+        C12.style.opacity = 1;
+
+    });
     
 
-
-
-
-
-
-
-
-
  }
-
-
 loadingParts();
 
 
