@@ -168,6 +168,30 @@ div#backBtn p {
   
 }
 
+@keyframes part5SurveyR1 {
+  0% {
+    margin-right: -450px;
+    opacity: 1;
+    }
+    100%{
+      margin-right: 0px;
+      margin-top: -305px!important;
+      opacity: 1;
+       }
+}
+
+
+@keyframes part5ParticleR1 {
+  0% {
+    margin-left: -800px;
+    margin-bottom: -285px;  
+     }
+     100%{
+      margin-bottom: -236px!important;
+      margin-left: 16px!important;
+      transform:  scale(.6) translateY(-406px)!important;
+    }
+}
 
 
 /**/
@@ -478,6 +502,19 @@ input[type="submit"] , button {
     width: 100%;
 }
 
-.btns {
+#particleCore .btns {
   gap: 31px;
 }
+
+#C2 .btns {
+  gap: 40px !important;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+
+/**/
+
+

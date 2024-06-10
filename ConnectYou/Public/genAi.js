@@ -1,7 +1,9 @@
-document.getElementById("GenAiForm").addEventListener("submit", async function(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    const promptInput = document.getElementById("promptInput").value; // Get the value from the input field
+ async function genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage) {
+
+
+    let promptInput = `create 4 lines short about me section to be in a job resume , start with the name  ${username} , ${speciality} , talk about interests ${interest} 
+    , put my age too ${Age}, languages that i speak ${langs} , the quality of languages seems to diminish as we move down the list , talk about habits ${Habits}, start with hey i'm ${username} ,dont use any #  or * , just regular string , on ${actualLanguage}
+       `; // Get the value from the input field
 
     // Fetch the result from the server with the input value as the prompt
     const response = await fetch('/generateContent', {
@@ -14,5 +16,5 @@ document.getElementById("GenAiForm").addEventListener("submit", async function(e
     const result = await response.text();
 
     // Update the content of the result div
-    document.getElementById("result").innerText = result;
-});
+  return result;
+};

@@ -47,6 +47,55 @@ const C5p = document.querySelector("#C5 p");
 
 const C6H0 = document.querySelector("#C6 #Header ");
 
+const C7 = document.querySelector("#C7");
+const C7ClearBtn = document.querySelector('#C7 #btns .Clear');
+const C7Age = document.querySelector('#C7 #age ');
+const C7Citizenship = document.querySelector('#C7 select');
+const C7Lang = document.querySelector('#C7 #languages');
+const C7Email = document.querySelector('#C7 #email');
+const C7Habits = document.querySelector('#C7 #habits');
+const C7Submit = document.querySelector('#C7 .Submit');
+
+
+var  Age;
+var  langs;
+var   Email ;
+var   Habits;
+var Citizenship;
+
+const C8 = document.querySelector("#C8");
+var copanyName = document.querySelector("#C8 #companyName");
+var jobTitle = document.querySelector("#C8 #jobTitle");
+var jobDesc = document.querySelector("#C8 #jobDesc");
+var fromDate = document.querySelector("#C8 #fromDate");
+var toDate = document.querySelector("#C8 #toDate");
+
+const C8Skip  = document.querySelector("#C8 .Skip");
+const C8Next = document.querySelector('#C8 #Next');
+const C8Add = document.querySelector('#C8 #Add');
+
+var Experiences = ['none'];
+var Experience;
+
+const C9 = document.querySelector('#C9');
+
+const C9Skip = document.querySelector('#C9 .Skip');
+const C9Next = document.querySelector('#C9 #FinalNext');
+const C9Add = document.querySelector('#C9 #Add');
+
+const   degreeName       = document.querySelector('#C9 #degreeName');
+const    universityName  = document.querySelector('#C9 #universityName');
+const    degreeDate = document.querySelector('#C9 #degreeDate');
+const    degreeDuration = document.querySelector('#C9 #degreeDuration');
+
+var Degrees = ['none'];
+var Degree;
+var OutputPrompt;
+
+const pPrompt = document.querySelector('#C10 #body p');
+const againBtn = document.querySelector('#C10 #AgainGenAi');
+
+
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -192,6 +241,174 @@ async function loadingParts(){
                     C6.style.opacity = 1;
                 });
     });
+
+    C6ResumeBtn.addEventListener('click',async ()=>{
+        actualPart = 6;
+        C6.style.opacity = 0;
+        await delay(800);
+        C6.style.display = 'none';
+        actualPart = 7;
+        C7.style.display = 'flex';
+        Particle.style.animation = "part5AnParticleR1 1s ease-in-out";
+        survey.style.animation = "part5AnSurveyR1 1s ease-in-out";
+        await delay (1200);
+        Particle.style.marginLeft = '16px';
+        Particle.style.marginBottom = '-236px';
+        Particle.style.transform = ' scale(.6) translateY(-406px)';
+        survey.style.marginRight = '0px';
+        survey.style.marginTop = '-305px!important';
+        C6btns.style.display = 'none';     
+
+        await delay(100);
+        C7.style.opacity = 1;
+    });
+
+    C7ClearBtn.addEventListener('click', ()=>{
+        C7Age.value = '';
+        C7Lang.value = '';
+        C7Email.value = '';
+        C7Habits.value = '';
+    });
+
+    C7Submit.addEventListener('click', async ()=>{
+        if(C7Age.value === '' || C7Lang.value === '' || C7Email.value === '' || C7Habits.value === '' ){
+            alert('Fill Your Informations!');
+        }else {
+              Age = C7Age.value;
+              langs = C7Lang.value;
+               Email =  C7Email.value;
+               Habits = C7Habits.value;
+             Citizenship = C7Citizenship.value;
+            C7.style.opacity = 0;
+            await delay(800);
+            C7.style.display = 'none';
+            actualPart = 8;
+            C8.style.display = 'flex';
+            await delay(100);
+            C8.style.opacity = 1;   
+        }
+    });
+
+    C8Add.addEventListener('click',()=>{
+
+        if (copanyName.value ==''|| jobTitle.value  == '' || jobDesc.value == '' || fromDate.value == ''|| toDate.value == '' ){
+            alert('Fill Your Work Experience!');
+        }else{
+            var Experience = {
+                company: copanyName.value,
+                jobTitle: jobTitle.value,
+                jobDesc: jobDesc.value,
+                fromDate: fromDate.value,
+                toDate: toDate.value
+            };
+            Experiences.push(Experience);
+            console.log(Experience);
+            console.log(Experiences);
+            copanyName.value = '';
+            jobTitle.value = '';
+            jobDesc.value = '';
+            fromDate.value = '';
+            toDate.value = '';
+            alert('Done');
+        }
+    });
+
+    C8Skip.addEventListener('click', async ()=>{
+        Experiences = ['none'];
+        C8.style.opacity = 0;
+        await delay(800);
+        C8.style.display = 'none';
+        C9.style.display = 'flex';
+        actualPart = 9;
+        await delay(100);
+        C9.style.opacity = 1;
+    });
+
+    C8Next.addEventListener('click', async ()=>{
+        if (Experiences == ['none'] ){
+            alert('Please Add At Least One Work Experience!');
+        }else {
+            C8.style.opacity = 0;
+            await delay(800);
+            C8.style.display = 'none';
+            C9.style.display = 'flex';
+            actualPart = 9;
+            await delay(100);
+            C9.style.opacity = 1;
+        }
+    });
+
+    C9Skip.addEventListener('click',async ()=>{
+        Degrees = ['none'];
+        C9.style.opacity = 0;
+        await delay(800);
+        C9.style.display = 'none';
+        OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
+        pPrompt.innerHTML = OutputPrompt;
+        C10.style.display = 'flex';
+        actualPart = 10;
+        await delay(100);
+        C10.style.opacity = 1;
+    });
+
+    C9Add.addEventListener('click', async ()=>{
+        if (degreeName.value === '' || universityName.value === '' || degreeDate.value === ''  || degreeDuration.value === ''){
+            alert('Please Fill All The Fields!');
+        } else {
+             Degree = {
+                degreeName: degreeName.value,
+                universityName: universityName.value,
+                degreeDate: degreeDate.value,
+                degreeDuration: degreeDuration.value
+            };
+            Degrees.push(Degree);
+            degreeName.value = '';
+            universityName.value = '';
+            degreeDate.value = '';
+            degreeDuration.value = '';
+            alert('Done');
+        }
+    });
+
+    C9Next.addEventListener('click',async ()=>{
+        if (Degrees == ['none'] ){
+            alert('Please Add At Least One Degree!');
+        } else{
+            C9.style.opacity = 0;
+            await delay(800);
+            C9.style.display = 'none';
+            OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
+            pPrompt.innerHTML  = OutputPrompt;
+            C10.style.display = 'flex';
+            actualPart = 10;
+            await delay(100);
+            C10.style.opacity  = 1;
+            const aiImg = document.querySelector('#particleCore img#AiImg');
+            aiImg.style.display = 'block';
+            await delay(100);
+            aiImg.style.opacity = 1;
+            aiImg.style.transform = 'translate(214px, -24px)';
+        }
+    });
+
+    againBtn.addEventListener('click',async ()=>{
+        pPrompt.style.opacity = 0;
+        OutputPrompt = await genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
+        await delay(100);        
+        pPrompt.innerHTML  = OutputPrompt;
+        pPrompt.style.opacity = 1;
+    });
+
+    
+
+
+
+
+
+
+
+
+
  }
 
 

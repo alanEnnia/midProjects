@@ -1,10 +1,12 @@
+
 .container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
-    align-self: center;
+    align-content: center;
     width: 100%;
+    gap: 0px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -21,11 +23,9 @@
     gap: 10px;
 }
 
-button#part2Btn,
-#internship,
-#job {
+button#part2Btn {
     width: 140px;
-    height: 34px;
+    height: 27px;
     font-size: 16px;
     border-radius: 30px;
     background: #5736DE;
@@ -36,13 +36,11 @@ button#part2Btn,
     margin-top: 20px;
 }
 
-button#part2Btn:hover,
-#internship:hover,
-#job:hover {
+button#part2Btn:hover {
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-input[type=text] {
+#C1 input[type=text],#C2 input[type=text],#C3 input[type=text],#C4 input[type=text],#C5 input[type=text],#C6 input[type=text] {
     margin: 0px !important;
     padding-top: 8px !important;
     border-top-width: 0px !important;
@@ -63,20 +61,148 @@ form#formC {
     align-items: center;
 }
 
-h1 {
+
+
+#pContainer {
     text-align: center;
 }
 
-table,
-tr,
-td,
-th {
-    border: 1px solid black;
-    border-collapse: collapse;
+.btns {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-tr,
-th {
-    width: 90px;
-    text-align: center;
+#internship,#job {
+width: 140px;
+height: 34px;
+font-size: 16px;
+border-radius: 30px;
+background: #5736DE;
+color: white;
+border: 1px solid #5736DE;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+transition: box-shadow 0.3s ease;
+margin-top: 20px;
 }
+
+#internship:hover,#job:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+.container{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+
+.container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    align-self:center;
+    width:100%;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container #pContainer {
+    text-align:center;
+  }
+  
+  .btns {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+  }
+  
+  .btns button {
+                width: 190px;
+              height: 34px;
+              font-size: 14px;
+              border-radius: 30px;
+              background: #5736DE;
+              color: white;
+              border: 1px solid #5736DE;
+              box-shadow: 2px 2px 5px   rgba(0, 0, 0, 0.3);
+              transition: box-shadow 0.3s ease;
+              margin-top: 20px;
+  }
+  
+  .btns button:hover {
+                    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  
+
+  .container {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    align-self:center;
+    width:100%;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container #pContainer {
+    text-align:center;
+  }
+  
+  .btns {
+      display:flex;
+      justify-content:center;
+      gap:20px;
+  }
+  
+  .btns input {
+                width: 190px;
+              height: 34px;
+              font-size: 16px;
+              border-radius: 30px;
+              background: #5736DE;
+              color: white;
+              border: 1px solid #5736DE;
+              box-shadow: 2px 2px 5px   rgba(0, 0, 0, 0.3);
+              transition: box-shadow 0.3s ease;
+              margin-top: 20px;
+  }
+  
+  .btns button:hover {
+                    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  
+
+       
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+h1{
+text-align:center;
+}
+
+table,tr,td,th {
+border:1px solid black;
+border-collapse: collapse;
+}
+
+tr,th {
+width:90px;
+text-align:center;
+}
+
+
+
