@@ -14,6 +14,7 @@
     <script src="./switchLightMode.js" defer></script>
     <script src="./lang.js" defer></script>
     <script src="./importData.js" defer></script>
+    <script  src="./audio.js" defer></script>
     <script src="./genAi.js" defer></script>
     
     <link rel="stylesheet" href="style.css">
@@ -23,12 +24,13 @@
     <script src="https://kit.fontawesome.com/70ff3266e1.js" crossorigin="anonymous" defer></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/86/three.min.js" ></script>
     <script  src="./particleBlob.js" defer></script>
-    <script  src="./audio.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>  
 
 
  
   <script  src="./script.js" defer></script>
-  <script src="./turnPDF.js" ></script>
+  <script src="./turnPDF.js" defer ></script>
     
 
     
@@ -63,7 +65,7 @@
                     Your browser does not support the video tag.
             </video> -->
            
-
+            <button type="button" id="downCV">Download the CV</button>
             <div id="btnContainer">
                 <button type="submit" id="expoBtn">export data</button>
                 <button type="submit" id="resuBtn">build resume</button>
@@ -195,9 +197,9 @@
                 <br>
                 <input type="email" id="email" placeholder="email">
                 <input type="text" id="habits" placeholder="basketball,running" >
-                <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" maxlength="10">
+                <input type="number" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" >
             </div>
-              <div id="btns">
+              <div class="btns">
                 <button type="button" class="Skip Clear">clear</button>
                 <button type="button" class="Submit">submit</button>
               </div>
@@ -221,10 +223,10 @@
             <input type="date" name="fromDate" id="fromDate" placeholder="From">
             <input type="date" name="toDate" id="toDate" placeholder="To" >
           </div>
-          <div id="btns">
+          <div class="btns">
             <button type="button" class="Skip">Skip</button>
-            <button type="button" id="Next">Next</button>
-            <button type="button" id="Add">Add</button>
+            <button type="button" class="Next">Next</button>
+            <button type="button" class="Add">Add</button>
           </div>
         </form>
      </div>
@@ -246,10 +248,10 @@
                 <input type="date" name="degreeDate" id="degreeDate" placeholder="Date">
                 <input type="number" name="degreeDuration" id="degreeDuration" min="1" max="5"  placeholder="Duration Per Year">
               </div>
-              <div id="btns">
+              <div class="btns">
                 <button type="button" class="Skip">Skip</button>
-                <button type="button" id="Next">Next</button>
-                <button type="button" id="Add">Add</button>
+                <button type="button" class="Next">Next</button>
+                <button type="button" class="Add">Add</button>
               </div>
             </form>
         
@@ -266,7 +268,7 @@
               
               <div id="inputs"  style="display: flex;">
                   <input type="text" id="projectName" placeholder="Name of the project" style="width: 300px;">
-                  <input type="text" id="projectDesc" placeholder="Descripe it ( ai will help :> )"   style="
+                  <input type="text" id="projectDesc" placeholder="Describe it ( ai will help :> )"   style="
                   width: 500px;
                   display: flex;
                   justify-content: center;
@@ -274,10 +276,10 @@
                   align-content: center;
               ">
               </div>
-              <div id="btns">
+              <div class="btns">
                 <button type="button" class="Skip">Skip</button>
-                <button type="button" id="Next">Next</button>
-                <button type="button" id="Add">Add</button>
+                <button type="button" class="Next">Next</button>
+                <button type="button" class="Add">Add</button>
               </div>
             </form>
         
@@ -298,10 +300,10 @@
             <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsum enim ut veritatis nobis. Dicta a distinctio consequatur porro sunt modi aspernatur, illo veritatis nesciunt eos sapiente, sit natus error.</P>
 
       </div>
-      <div id="btns">
+      <div class="btns">
         
-        <button type="button" id="FinalNext">Next</button>
-        <button type="button" id="AgainGenAi">Again</button>
+        <button type="button" class="Next" id="FinalNext">Next</button>
+        <button type="button"  id="AgainGenAi">Again</button>
       </div>
     </form>
 

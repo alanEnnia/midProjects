@@ -44,14 +44,14 @@ width:1000px;
 }
 
 
-.Cpart2 #btns {
+.Cpart2 .btns {
 
     margin-top: 40px;
 }
 
 
 
-.Cpart2 #btns button {
+.Cpart2 .btns button {
     width: 140px;
     height: 27px;
     font-size: 16px;
@@ -65,7 +65,7 @@ width:1000px;
 	margin-right:10px;
 }
 
-.Cpart2 #btns button:hover {
+.Cpart2 .btns button:hover {
     box-shadow: 4px 4px 10px rgba(89, 0, 253, 0.925);
 }
 
@@ -105,7 +105,7 @@ width:1000px;
 }
 
 
-#C11 #btns {
+#C11 .btns {
     margin-top: 17px;
 
 }

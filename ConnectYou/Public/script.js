@@ -48,7 +48,7 @@ const C5p = document.querySelector("#C5 p");
 const C6H0 = document.querySelector("#C6 #Header ");
 
 const C7 = document.querySelector("#C7");
-const C7ClearBtn = document.querySelector('#C7 #btns .Clear');
+const C7ClearBtn = document.querySelector('#C7 .btns .Clear');
 const C7Age = document.querySelector('#C7 #age ');
 const C7Citizenship = document.querySelector('#C7 select');
 const C7Lang = document.querySelector('#C7 #languages');
@@ -73,8 +73,8 @@ var fromDate = document.querySelector("#C8 #fromDate");
 var toDate = document.querySelector("#C8 #toDate");
 
 const C8Skip  = document.querySelector("#C8 .Skip");
-const C8Next = document.querySelector('#C8 #Next');
-const C8Add = document.querySelector('#C8 #Add');
+const C8Next = document.querySelector('#C8 .Next');
+const C8Add = document.querySelector('#C8 .Add');
 
 var Experiences = [];
 var Experience;
@@ -82,8 +82,8 @@ var Experience;
 const C9 = document.querySelector('#C9');
 
 const C9Skip = document.querySelector('#C9 .Skip');
-const C9Next = document.querySelector('#C9 #Next');
-const C9Add = document.querySelector('#C9 #Add');
+const C9Next = document.querySelector('#C9 .Next');
+const C9Add = document.querySelector('#C9 .Add');
 
 const   degreeName       = document.querySelector('#C9 #degreeName');
 const    universityName  = document.querySelector('#C9 #universityName');
@@ -100,8 +100,8 @@ const againBtn = document.querySelector('#C11 #AgainGenAi');
 const C10 = document.querySelector("#C10");
 
 const C10Skip = document.querySelector('#C10 .Skip');
-const C10Next = document.querySelector("#C10 #Next");
-const C10Add = document.querySelector("#C10 #Add");
+const C10Next = document.querySelector("#C10 .Next");
+const C10Add = document.querySelector("#C10 .Add");
 
 
 const C11 = document.querySelector("#C11");
@@ -116,6 +116,7 @@ const C11Next = document.querySelector('#C11 #FinalNext');
 
 var C12;
 
+const downCV  = document.querySelector(' #downCV');
 
 
 
@@ -189,7 +190,7 @@ async function loadingParts(){
                 if (speciality == 'ID'){
                     if (actualLanguage == "EN"){ 
                         btnC4.value = 'Healthcare';
-                        btn1C4.value = 'Telecommunications';
+                        btn1C4.value = 'Telecommunication';
                         btn2C4.value = 'Banking';
                     } 
                     if (actualLanguage == "FR") {
@@ -285,8 +286,8 @@ async function loadingParts(){
         survey.style.marginRight = '0px';
         survey.style.marginTop = '-305px!important';
         C6btns.style.display = 'none';     
-
         await delay(100);
+        playAudio(actualPart);
         C7.style.opacity = 1;
     });
 
@@ -305,7 +306,7 @@ async function loadingParts(){
               Age = C7Age.value;
               langs = C7Lang.value;
                Email =  C7Email.value;
-               Phone = C7Phone.value;
+               PhoneNumber = C7Phone.value;
                Habits = C7Habits.value;
              Citizenship = C7Citizenship.value;
             C7.style.opacity = 0;
@@ -314,6 +315,7 @@ async function loadingParts(){
             actualPart = 8;
             C8.style.display = 'flex';
             await delay(100);
+            playAudio(actualPart);
             C8.style.opacity = 1;   
         }
     });
@@ -351,6 +353,7 @@ async function loadingParts(){
         C9.style.display = 'flex';
         actualPart = 9;
         await delay(100);
+        playAudio(actualPart);
         C9.style.opacity = 1;
     });
 
@@ -366,6 +369,7 @@ async function loadingParts(){
             C9.style.display = 'flex';
             actualPart = 9;
             await delay(100);
+            playAudio(actualPart);
             C9.style.opacity = 1;
         }
     });
@@ -378,6 +382,7 @@ async function loadingParts(){
         C10.style.display = 'flex';
         actualPart = 10;
         await delay(100);
+        playAudio(actualPart);
         C10.style.opacity = 1;
     });
 
@@ -417,6 +422,8 @@ async function loadingParts(){
             aiImg.style.display = 'block';
             await delay(100);
             aiImg.style.opacity = 1;
+            playAudio(actualPart);
+            await delay(100);
             aiImg.style.transform = 'translate(214px, -24px)';
         }
     });
@@ -446,6 +453,7 @@ async function loadingParts(){
 
         Projects = [];
         C10.style.opacity = 0;
+        document.querySelector('#particleCore img#AiImg').style.opacity = 0;
         await delay(800);
         C10.style.display = 'none';
         OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
@@ -453,15 +461,17 @@ async function loadingParts(){
         C11.style.display = 'flex';
         actualPart = 11;
         await delay(100);
+        playAudio(actualPart);
         C11.style.opacity = 1;
     });
 
 
     C10Next.addEventListener('click',async ()=>{
         if (Projects.length == 0){
-            alert('Please Add At Least One Degree!');
+            alert('Please Add At Least One Project!');
         } else{
             C10.style.opacity = 0;
+            document.querySelector('#particleCore img#AiImg').style.opacity = 0;
             await delay(800);
             C10.style.display = 'none';
             OutputPrompt = await  genAi(username,speciality,interest,Age,langs,Habits,Experiences,Degrees,actualLanguage);
@@ -473,6 +483,7 @@ async function loadingParts(){
             const aiImg = document.querySelector('#particleCore img#AiImg');
             aiImg.style.display = 'block';
             await delay(100);
+            playAudio(actualPart);
             aiImg.style.opacity = 1;
             aiImg.style.transform = 'translate(214px, -24px)';
         }
@@ -502,14 +513,20 @@ async function loadingParts(){
         survey.style.marginRight = '-343px';
         C12.style.transform = 'scale(.7)';
         actualPart = 12;
+        playAudio(actualPart);
+        downCV.style.display = 'block';
+        downCV.style.transform  = 'translateY(50px)';
         await delay(100);
+        downCV.style.opacity = 1;
+        await delay(300);
+        downCV.style.transform  = 'translateY(0px)';
         C12.style.opacity = 1;
-
     });
-    
 
  }
 loadingParts();
+
+
 
 
 

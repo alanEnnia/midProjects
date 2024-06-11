@@ -1,155 +1,4 @@
-
-    <style>
-
- 
-#C12  {
-  min-height: 100%;
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  color: #222;
-  font-size: 14px;
-  line-height: 26px;
-  padding-bottom: 50px;
-  transform: scale(0.6) translateY(103px)!important;
-}
-
-#C12 .container1 {
-  min-width: 755px;
-  height: 1000px;
-  min-width: 701px;
-    transform: scale(.8);
-    background: #fff;
-    margin: 0px auto 0px;
-    box-shadow: 1px 1px 2px #DAD7D7;
-    border-radius: 3px;
-    padding: 40px;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-between;
-}
-
-#C12 .header {
-  margin-bottom: 30px;
-}
-#C12 .header .full-name {
-  font-size: 40px;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-}
-#C12 .header .first-name {
-  font-weight: 700;
-}
-#C12 .header .last-name {
-  font-weight: 300;
-}
-#C12 .header .contact-info {
-  margin-bottom: 20px;
-}
-#C12 .header .email,
-#C12 .header .phone {
-  color: #999;
-  font-weight: 300;
-}
-#C12 .header .separator {
-  height: 10px;
-  display: inline-block;
-  border-left: 2px solid #999;
-  margin: 0px 10px;
-}
-#C12 .header .position {
-  font-weight: bold;
-  display: inline-block;
-  margin-right: 10px;
-  text-decoration: underline;
-}
-
-#C12 .details {
-  line-height: 20px;
-}
-#C12 .details .section {
-  margin-bottom: 40px;
-}
-#C12 .details .section:last-of-type {
-  margin-bottom: 0px;
-}
-#C12 .details .section__title {
-  letter-spacing: 2px;
-  color: #54AFE4;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
-.section__list {
-  display: flex;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin: 18px auto;
-    gap:140px;
-}
-
-
-
-#C12 .details .section__list-item {
-  margin-bottom: 0px;
-}
-#C12 .details .section__list-item:last-of-type {
-  margin-bottom: 0;
-}
-#C12 .details .left,
-#C12 .details .right {
-  vertical-align: top;
-  display: inline-block;
-}
-#C12 .details .right {
-  text-align: right;
-  width: 39%;
-}
-#C12 .details .name {
-  font-weight: bold;
-}
-#C12 .details a {
-  text-decoration: none;
-  color: #000;
-  font-style: italic;
-}
-#C12 .details a:hover {
-  text-decoration: underline;
-  color: #000;
-}
-#C12 .details .skills__item {
-  margin-bottom: 10px;
-}
-#C12 .details .skills__item .right input {
-  display: none;
-}
-#C12 .details .skills__item .right label {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: #C3DEF3;
-  border-radius: 20px;
-  margin-right: 3px;
-}
-
-.skills__items {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    gap: 20px;
-    padding-bottom: 19px;
-}
-
-.name {
-  font-weight: bold;
-}
-
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>    
+    <link rel="stylesheet" href="resumStyle.css">  
     
 <div id="content" class="container1">
   <div class="header">
@@ -175,22 +24,34 @@
    <div class="details">
     <div class="section Experiences">
       <div class="section__title">Experience</div>
-      <div class="section__list">
-
+      <div class="section__list ExpSec">
+        
       </div>
     </div>
     <div class="section Degrees">
       <div class="section__title">Education</div>
-      <div class="section__list">
+      <div class="section__list" style="
+      gap: 0px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;">
 
       </div>
       
   </div>
      <div class="section Projects">
       <div class="section__title">Projects</div> 
-       <div class="section__list">
+       <div class="section__list" style="     gap: 10px;
+       flex-direction: column;
+       display: flex;
+       align-content: center;
+       justify-content: center;
+       align-items: center;
+       width: 100%;">
        </div>
     </div>
+
+
      <div class="section">
        <div class="section__title">Skills</div>
        <div class="skills">
@@ -227,18 +88,6 @@
   </div>
 </div>
 <script>
-    document.getElementById('download').addEventListener('click', function () {
-        html2canvas(document.getElementById('content'), {
-            onrendered: function (canvas) {
-                console.log('1');
-                var imgData = canvas.toDataURL('image/png');
-                var doc = new jsPDF();
-                console.log('2');
-                doc.addImage(imgData, 'PNG', 10, 10);
-                doc.save('sample.pdf');
-                console.log('3');
-            }
-        });
-    });
+ 
 
 </script>
